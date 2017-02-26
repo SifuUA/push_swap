@@ -56,7 +56,10 @@ void    sort_four_five(t_d_linklst *list_a, t_d_linklst *list_b)
 void    little_sort(t_d_linklst *list_a, t_d_linklst *list_b)
 {
 	if (is_sort(list_a))
-		return ;
+	{
+		replace_to_a(list_a, list_b);
+		return;
+	}
 	if (list_a->size == 2)
 	{
 		if (list_a->head->value > list_a->tail->value)
