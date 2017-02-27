@@ -1,6 +1,5 @@
 #include "push_swap.h"
 
-// sa
 void    sa(t_d_linklst *list_a)
 {
 	T tmp;
@@ -13,7 +12,7 @@ void    sa(t_d_linklst *list_a)
 		put("sa");
 	}
 }
-// sb
+
 void    sb(t_d_linklst *list_b)
 {
 	T tmp;
@@ -26,7 +25,7 @@ void    sb(t_d_linklst *list_b)
 		put("sb");
 	}
 }
-//ss
+
 void    ss(t_d_linklst *list_a, t_d_linklst *list_b)
 {
 	sa(list_a);

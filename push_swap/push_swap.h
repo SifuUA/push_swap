@@ -4,7 +4,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include "../libft/libft.h"
-# include <stdio.h>
 
 # define OUT_OF_MEM 1
 # define WRONG_ARG 2
@@ -25,6 +24,7 @@ typedef struct      s_d_linklst
 	struct s_node   *tail;
 	size_t          size;
 	size_t          elem_pos;
+	size_t 			count_of_op;
 }                   t_d_linklst;
 
 
@@ -37,7 +37,7 @@ void 				ra(t_d_linklst *list);
 void 				rb(t_d_linklst *list);
 void 				rr(t_d_linklst *list_a, t_d_linklst *list_b);
 void 				rra(t_d_linklst *list);
-void 				rra(t_d_linklst *list);
+void 				rrb(t_d_linklst *list);
 void 				rrr(t_d_linklst *list_a, t_d_linklst *list_b);
 
 t_d_linklst     	*creat(void);
