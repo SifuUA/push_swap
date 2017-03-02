@@ -4,24 +4,24 @@ void    sort_three_rev(t_d_linklst *list_a)
 {
 	if (list_a->head->value > list_a->head->next->value &&
 		list_a->head->value < list_a->tail->value)
-		rra(list_a);
+		rrb(list_a);
 	else if (list_a->head->value > list_a->head->next->value &&
 			 list_a->tail->value > list_a->tail->prev->value)
 	{
-		rra(list_a);
+		sb(list_a);
+		rb(list_a);
 	}
 	else if (list_a->tail->value < list_a->tail->prev->value &&
 			 list_a->tail->value < list_a->head->value)
-		sa(list_a);
+		sb(list_a);
 	else if (list_a->head->value < list_a->tail->value &&
 			 list_a->tail->value < list_a->tail->prev->value)
 	{
-		ra(list_a);
+		rb(list_a);
 	}
 	else
 	{
-		sa(list_a);
-		rra(list_a);
+		rrb(list_a);
 	}
 }
 
@@ -61,21 +61,33 @@ void	move_from_b(t_d_linklst *list_a, t_d_linklst *list_b, size_t len)
 {
 	size_t	i;
 	size_t 	j;
+	size_t 	k;
 
 	i = len / 2;
 	j = 0;
+	k = 0;
 	while (list_a->ar[j] != 0)
 		j++;
 	list_b->ar[j] = i;
 	while (i > 0  && find_min(list_b))
 	{
-		if (list_b->head->value > list_b->median)
+		if (list_b->head->value >= list_b->median)
 		{
 			pa(list_a, list_b);
+			if (list_a->head->value > list_a->head->next->value)
+				sa(list_a);
 			i--;
 		}
 		else
+		{
 			rb(list_b);
+			k++;
+		}
+	}
+	while (k > 0)
+	{
+		rrb(list_b);
+		k--;
 	}
 }
 

@@ -72,7 +72,7 @@ void	r_sort(t_d_linklst *list_a, t_d_linklst *list_b, size_t len)
 	}
 	if (list_a->size <= 3 && !is_sort(list_a))
 		sort_three(list_a);
-	while (list_b->ar[i] != 0)
+	while (list_b->ar[i] != 0 && list_b->head != NULL)
 		i++;
 	i--;
 	if (list_b->ar[i] > 3)
@@ -82,15 +82,15 @@ void	r_sort(t_d_linklst *list_a, t_d_linklst *list_b, size_t len)
 		move_from_b(list_a, list_b, list_b->ar[i]);
 		r_sort(list_a, list_b, len);
 	}
-	int j = i;
-	while (j >= 0)
+	int j = (int) list_b->ar[i];
+	while (j > 0 && list_b->head != NULL)
 	{
-		if (list_b->size <= 3)
+		if (list_b->size <= 3 && list_b->head != NULL)
 		{
 			sort_three_rev(list_b);
 			replace_to_a(list_a, list_b);
 		}
-		else if (list_b->head < list_b->head->next && j >= 1)
+		else if (list_b->head->value < list_b->head->next->value && j >= 1)
 			sb(list_b);
 		pa(list_a, list_b);
 		j--;
