@@ -3,11 +3,19 @@
 t_d_linklst     *creat(void) // создание листа
 {
 	t_d_linklst *tmp;
+	int 		i;
 
+	i = 0;
 	tmp = (t_d_linklst *)malloc(sizeof(t_d_linklst));
 	tmp->size = 0;
 	tmp->head = NULL;
 	tmp->tail = NULL;
+	/*tmp->ar = malloc(sizeof(size_t) * 1000);
+	while (i < 1000)
+	{
+		tmp->ar[i] = 0;
+		i++;
+	}*/
 	return (tmp);
 }
 

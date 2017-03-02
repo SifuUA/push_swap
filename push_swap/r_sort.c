@@ -35,11 +35,35 @@ void 	find_median(t_d_linklst *list)
 	list->median = p->value;
 }
 
-void	move_from(t_d_linklst *list_a, t_d_linklst *list_b)
+void 	find_median_b(t_d_linklst *list, size_t len)
+{
+	t_d_linklst *tmp;
+	t_node		*p;
+	size_t 		i;
+
+	tmp = ft_list_dup(list);
+	quick_sort(tmp->head, tmp->tail);
+	p = tmp->head;
+	i = tmp->size / 2;
+	while (i > 0)
+	{
+		p = p->next;
+		i--;
+	}
+	list->median = p->value;
+}
+
+void	move_from(t_d_linklst *list_a, t_d_linklst *list_b, size_t len)
 {
 	size_t	i;
+	size_t 	j;
 
 	i = list_a->size / 2;
+	j = 0;
+	while (list_b->ar[j] != 0)
+		j++;
+	list_b->ar[j] = i;
+	len = i;
 	while (i > 0)
 	{
 		if (list_a->head->value < list_a->median)
@@ -52,13 +76,18 @@ void	move_from(t_d_linklst *list_a, t_d_linklst *list_b)
 	}
 }
 
-void	r_sort(t_d_linklst *list_a, t_d_linklst *list_b)
+void	r_sort(t_d_linklst *list_a, t_d_linklst *list_b, size_t len)
 {
-	if (list_a->size > 1)
+	if (list_a->size > 3)
 	{
 		find_median(list_a);
-		move_from(list_a, list_b);
-		r_sort(list_a, list_b);
+		move_from(list_a, list_b, len);
+		r_sort(list_a, list_b, len);
 	}
-	else if (list_b)
+	else if (list_b->size > 3)
+	{
+		find_median(list_b);
+		move_from(list_a, list_b, len);
+		r_sort(list_a, list_b, len);
+	}
 }

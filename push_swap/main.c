@@ -39,14 +39,17 @@ int             main(int argc, char **argv)
 {
 	t_d_linklst     *list_a;
 	t_d_linklst     *list_b;
+	size_t 			len;
 
 	list_a = creat();
 	list_b = creat();
+	len	= 0;
 	if (argc > 1)
 	{
 		write_in_list(list_a, argv);
 		printList(list_a);
-		push_swap(list_a, list_b);
+	//	push_swap(list_a, list_b);
+		r_sort(list_a, list_b, len);
 		printList(list_a);
 	}
 	else
