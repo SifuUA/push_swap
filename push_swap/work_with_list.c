@@ -8,6 +8,8 @@ t_d_linklst     *creat(void) // создание листа
 	tmp->size = 0;
 	tmp->head = NULL;
 	tmp->tail = NULL;
+	tmp->max = 0;
+	tmp->min = 0;
 	return (tmp);
 }
 

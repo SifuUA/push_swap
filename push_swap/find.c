@@ -3,21 +3,21 @@
 size_t		get_position(t_d_linklst *list)
 {
 	t_node  *tmp;
-	T       min;
+	//T       min;
 	size_t	i;
 	size_t	pos;
 
 	i = 0;
 	tmp = list->head;
-	min = list->head->value;
+	list->min = list->head->value;
 	list->elem_pos = 0;
 	pos  = 1;
 	while (tmp)
 	{
 		i++;
-		if (tmp->value < min)
+		if (tmp->value < list->min)
 		{
-			min = tmp->value;
+			list->min = tmp->value;
 			pos = i;
 		}
 		tmp = tmp->next;

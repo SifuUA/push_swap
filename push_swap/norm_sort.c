@@ -1,5 +1,5 @@
 #include "push_swap.h"
-
+void    check(t_d_linklst *list);
 void    replace_to_a(t_d_linklst *list_a, t_d_linklst *list_b)
 {
 	while (list_b->size > 0)
@@ -15,18 +15,31 @@ void    replace_to_b(t_d_linklst *list_a, t_d_linklst *list_b)
 	{
 		i = 0;
 		new_pos = get_pos(list_a);
-		while (i < new_pos)
+		//while (i < new_pos)
+		while (list_a->head->value != list_a->min)
 		{
-			if (list_a->elem_pos > list_a->size / 2)
-				rra(list_a);
-			else if (new_pos != 1)
+			//if (list_a->head->value > list_a->head->next->value)
+			//{
+			//	sa(list_a);
+			//	continue;
+		//	}
+			size_t size = list_a->size / 2;
+			size = list_a->size % 2 > 0 ? size + 1 : size;
+			if (list_a->elem_pos <= size)
 			{
 				ra(list_a);
+				//check(list_a);
+			}
+			else
+			{
+				rra(list_a);
 				i++;
 			}
 			i++;
 		}
 		pb(list_a, list_b);
+		//if (list_a->head->value > list_a->head->next->value)
+			//sa(list_a);
 	}
 	little_sort(list_a, list_b);
 }

@@ -14,6 +14,7 @@ void 	rra(t_d_linklst *list)
 		tmp->prev = NULL;
 		list->head->prev = tmp;
 		list->head = tmp;
+		list->count_of_op++;
 		put("rra");
 	}
 }
@@ -32,6 +33,7 @@ void 	rrb(t_d_linklst *list)
 		tmp->prev = NULL;
 		list->head->prev = tmp;
 		list->head = tmp;
+		list->count_of_op++;
 		put("rrb");
 	}
 }
@@ -40,5 +42,6 @@ void 	rrr(t_d_linklst *list_a, t_d_linklst *list_b)
 {
 	rra(list_a);
 	rrb(list_b);
+	list_a->count_of_op++;
 	put("rrr");
 }

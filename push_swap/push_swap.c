@@ -20,7 +20,7 @@ int     is_sort(t_d_linklst *list)
 
 void    push_swap(t_d_linklst *list_a, t_d_linklst *list_b)
 {
-	if (is_sort(list_a))
+	if (is_sort(list_a) && list_b->size == 0)
 		printList(list_a);
 	else
 	{

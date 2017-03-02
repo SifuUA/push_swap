@@ -25,6 +25,9 @@ typedef struct      s_d_linklst
 	size_t          size;
 	size_t          elem_pos;
 	size_t 			count_of_op;
+	T				min;
+	T 				max;
+	T 				median;
 }                   t_d_linklst;
 
 
@@ -54,5 +57,7 @@ int                 is_sort(t_d_linklst *list);
 void                norm_sort(t_d_linklst *list_a, t_d_linklst *list_b);
 size_t              get_pos(t_d_linklst *list);
 
+void    			quick_sort(t_node *head, t_node *tail);
+void	r_sort(t_d_linklst *list_a, t_d_linklst *list_b);
 
 #endif

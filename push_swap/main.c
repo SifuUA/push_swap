@@ -39,15 +39,19 @@ int             main(int argc, char **argv)
 {
 	t_d_linklst     *list_a;
 	t_d_linklst     *list_b;
+	t_d_linklst		*list_c;
 
 	list_a = creat();
 	list_b = creat();
 	if (argc > 1)
 	{
 		write_in_list(list_a, argv);
+		//quick_sort(list_a->head, list_a->tail);
 		printList(list_a);
-		push_swap(list_a, list_b);
+		r_sort(list_a, list_b);
+		//push_swap(list_a, list_b);
 		printList(list_a);
+		ft_putnbr((int)(list_a->count_of_op + list_b->count_of_op));
 	}
 	else
 		write(1, "\n", 1);
