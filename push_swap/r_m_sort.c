@@ -6,13 +6,11 @@ void	piv_a(t_d_linklst *a, t_d_linklst *b)
 	t_d_linklst *c;
 	T			med;
 	size_t 		count;
-	t_node		*tmp;
 
 	c = ft_list_dup(a);
 	quick_sort(c->head, c->tail);
 	med = find_median(c);
 	count = count_small(a, med);
-	tmp = a->head;
 	while (count > 0)
 	{
 		if (a->head->value < med)
@@ -21,7 +19,12 @@ void	piv_a(t_d_linklst *a, t_d_linklst *b)
 			count--;
 		}
 		else
-			ra(a);
+		{
+			if (most_close_min(a, med) > a->size / 2)// проблема вибору серед 3 чисел
+				rra(a);
+			else
+				ra(a);
+		}
 	}
 	r_w_sort(a, b);
 }
@@ -31,32 +34,34 @@ void	piv_b(t_d_linklst *a, t_d_linklst *b)
 	t_d_linklst *c;
 	T			med;
 	size_t 		count;
-	t_node		*tmp;
 
-	c = ft_list_dup(a);
+	c = ft_list_dup(b);
 	quick_sort(c->head, c->tail);
 	med = find_median(c);
-	count = count_small(a, med);
-	tmp = a->head;
+	count = count_large(a, med);
 	while (count > 0)
 	{
-		if (a->head->value < med)
+		if (b->head->value > med)
 		{
-			pb(a, b);
+			pa(a, b);
 			count--;
 		}
 		else
-			ra(a);
+		{
+			if (most_close_max(a, med) > a->size / 2)// проблема вибору серед 3 чисел
+				rra(a);
+			else
+				ra(a);
+		}
 	}
 	r_w_sort(a, b);
 }
 
 void	r_w_sort(t_d_linklst *a, t_d_linklst *b)
 {
-	if (a->size > 2)
+	if (a->size > 2 && !is_sort(a))
 		piv_a(a, (t_d_linklst *)malloc(sizeof(t_d_linklst)));
-	if (b->size > 2)
-		piv_b(b,(t_d_linklst *)malloc(sizeof(t_d_linklst)));
-	else
-		replace_to_a(a, b);
+	if (b->size > 2 && !is_sort(b))
+		piv_b((t_d_linklst *)malloc(sizeof(t_d_linklst)), b);
+	move_to_a(a, b);
 }

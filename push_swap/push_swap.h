@@ -74,7 +74,11 @@ void   				sort_three_rev(t_d_linklst *list_a);
 
 t_d_linklst			*ft_list_dup(t_d_linklst *list);
 T 					find_median(t_d_linklst *list);
-size_t 				count_small(t_d_linklst *list, T median);
 void				r_w_sort(t_d_linklst *a, t_d_linklst *b);
+size_t 				count_small(t_d_linklst *list, T median);
+size_t 				count_large(t_d_linklst *list, T median);
+int 				most_close_min(t_d_linklst *list, T med);
+int 				most_close_max(t_d_linklst *list, T med);
+void   				move_to_a(t_d_linklst *list_a, t_d_linklst *list_b);
 
 #endif
