@@ -51,9 +51,9 @@ void	piv_b(t_d_linklst *a, t_d_linklst *b)
 		}
 		else
 		{
-			if (most_close_max(a, med) > a->size / 2)// проблема вибору серед 3 чисел
-				rrb(b);
-			else
+			//if (most_close_max(a, med) > a->size / 2)// проблема вибору серед 3 чисел
+				//rrb(b);
+			//else
 				rb(b);
 		}
 	}

@@ -2,8 +2,8 @@
 
 void	little_help(t_d_linklst *list_a, t_d_linklst *list_b)
 {
-	if (list_b->head != NULL && list_b->size > 1 && list_b->head->value < list_b->head->next->value)
-		sb(list_b);
+	//if (list_b->head != NULL && list_b->size > 1 && list_b->head->value < list_b->head->next->value)
+	//	sb(list_b);
 	if (list_a->head != NULL && list_a->size > 1 && list_a->head->value > list_a->head->next->value)
 		sa(list_a);
 }
