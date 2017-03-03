@@ -49,7 +49,8 @@ int             main(int argc, char **argv)
 		write_in_list(list_a, argv);
 		printList(list_a);
 	//	push_swap(list_a, list_b);
-		r_sort(list_a, list_b, len);
+	//	r_sort(list_a, list_b, len);
+		r_w_sort(list_a, list_b);
 		printList(list_a);
 	}
 	else

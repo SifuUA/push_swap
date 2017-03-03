@@ -60,11 +60,21 @@ int                 is_sort(t_d_linklst *list);
 void                norm_sort(t_d_linklst *list_a, t_d_linklst *list_b);
 size_t              get_pos(t_d_linklst *list);
 
+
+
 void				r_sort(t_d_linklst *list_a, t_d_linklst *list_b, size_t i);
 void   				quick_sort(t_node *head, t_node *tail);
-t_d_linklst			*ft_list_dup(t_d_linklst *list, size_t size);
+t_d_linklst			*ft_list_dupp(t_d_linklst *list, size_t size);
 void				move_from_b(t_d_linklst *list_a, t_d_linklst *list_b, size_t len);
 void 				find_median_b(t_d_linklst *list, size_t len);
 void    			sort_three(t_d_linklst *list_a);
-void    sort_three_rev(t_d_linklst *list_a);
+void   				sort_three_rev(t_d_linklst *list_a);
+
+
+
+t_d_linklst			*ft_list_dup(t_d_linklst *list);
+T 					find_median(t_d_linklst *list);
+size_t 				count_small(t_d_linklst *list, T median);
+void				r_w_sort(t_d_linklst *a, t_d_linklst *b);
+
 #endif

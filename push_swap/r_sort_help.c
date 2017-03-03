@@ -45,7 +45,7 @@ void 	find_median_b(t_d_linklst *list, size_t len)
 	t_node		*p;
 	size_t 		i;
 
-	tmp = ft_list_dup(list, len);
+	//tmp = ft_list_dup(list, len);
 	quick_sort(tmp->head, tmp->tail);
 	p = tmp->head;
 	i = tmp->size / 2;

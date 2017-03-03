@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-t_d_linklst	*ft_list_dup(t_d_linklst *list, size_t size)
+t_d_linklst	*ft_list_dupp(t_d_linklst *list, size_t size)
 {
 	t_d_linklst	*new;
 	t_node		*tmp;
@@ -18,13 +18,15 @@ t_d_linklst	*ft_list_dup(t_d_linklst *list, size_t size)
 	return (new);
 }
 
-void 	find_median(t_d_linklst *list)
+
+
+/*void 	find_median(t_d_linklst *list)
 {
 	t_d_linklst *tmp;
 	t_node		*p;
 	size_t 		i;
 
-	tmp = ft_list_dup(list, list->size);
+	tmp = ft_list_dupp(list, list->size);
 	quick_sort(tmp->head, tmp->tail);
 	p = tmp->head;
 	i = tmp->size / 2;
@@ -36,7 +38,7 @@ void 	find_median(t_d_linklst *list)
 	list->median = p->value;
 }
 
-
+*/
 void	move_from_a(t_d_linklst *list_a, t_d_linklst *list_b)
 {
 	size_t	i;
