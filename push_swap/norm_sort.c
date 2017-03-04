@@ -33,9 +33,9 @@ void    replace_to_b(t_d_linklst *list_a, t_d_linklst *list_b)
 
 void    check(t_d_linklst *list)
 {
-	if (list->head > list->head->next)
+	if (list->head->value > list->head->next->value)
 		sa(list);
-	else if (list->tail < list->tail->prev && list->tail > list->head)
+	else if (list->tail->value < list->tail->prev->value && list->tail->value > list->head->value)
 	{
 		rra(list);
 		rra(list);
@@ -43,9 +43,9 @@ void    check(t_d_linklst *list)
 		ra(list);
 		ra(list);
 	}
-	else if (list->head > list->head->next && list->tail < list->head)
+	else if (list->head->value > list->head->next->value && list->tail->value < list->head->value)
 		ra(list);
-	else if (list->tail < list->head && list->tail < list->tail->prev)
+	else if (list->tail->value < list->head->value && list->tail->value < list->tail->prev->value)
 		rra(list);
 }
 

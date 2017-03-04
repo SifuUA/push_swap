@@ -11,9 +11,10 @@ void	piv_a(t_d_linklst *a, t_d_linklst *b)
 	quick_sort(c->head, c->tail);
 	med = find_median(c);
 	count = count_small(a, med);
-	little_help(a, b);
+	check_2(a);
 	while (count > 0 && !is_sort(a))
 	{
+		//check_2(a);
 		if (a->head->value < med)
 		{
 			pb(a, b);
@@ -41,19 +42,21 @@ void	piv_b(t_d_linklst *a, t_d_linklst *b)
 	quick_sort(c->head, c->tail);
 	med = find_median(c);
 	count = count_large(b, med);
+	check_1(b);
 	while (count >= 0)
 	{
 		if (b->head->value >= med)
 		{
-			little_help(a, b);
+			check_1(b);
 			pa(a, b);
+			little_help(a, b);
 			count--;
 		}
 		else
 		{
-			//if (most_close_max(a, med) > a->size / 2)// проблема вибору серед 3 чисел
-				//rrb(b);
-			//else
+			if (most_close_max(a, med) > a->size / 2)// проблема вибору серед 3 чисел
+				rrb(b);
+			else
 				rb(b);
 		}
 	}

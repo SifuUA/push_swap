@@ -11,6 +11,7 @@ void	little_help(t_d_linklst *list_a, t_d_linklst *list_b)
 void    move_to_a(t_d_linklst *list_a, t_d_linklst *list_b)
 {
 	little_help(list_a, list_b);
+	check_1(list_b);
 	while (list_b->size > 0)
 		pa(list_a, list_b);
 }
@@ -67,3 +68,53 @@ void    optimize_check(t_d_linklst *list)
 		rra(list);
 }
 
+void	check_1(t_d_linklst *b)
+{
+	if (b->size >= 3)
+	{
+		if (b->head->next->value < b->head->next->next->value &&
+				b->head->next->next->value > b->head->value &&
+				b->head->value > b->head->next->value)
+		{
+			rb(b);
+			sb(b);
+			rrb(b);
+			sb(b);
+		}
+		else if (b->head->value < b->head->next->value && b->head->next->value < b->head->next->next->value)
+		{
+			sb(b);
+			rb(b);
+			sb(b);
+			rrb(b);
+			sb(b);
+		}
+		/*else if (b->head->value > b->head->next->value && b->head->next->next->value < b->head->value)
+		{
+			rb(b);
+			sb(b);
+			rrb(b);
+		}*/
+		else if (b->head->value < b->head->next->value)
+			sb(b);
+	}
+}
+
+void    check_2(t_d_linklst *list)
+{
+
+	if (list->tail->value < list->tail->prev->value && list->tail->value > list->head->value)
+	{
+		rra(list);
+		rra(list);
+		sa(list);
+		ra(list);
+		ra(list);
+	}
+	else if (list->head->value > list->head->next->value && list->tail->value < list->head->value)
+		ra(list);
+	else if (list->tail->value < list->head->value && list->tail->value < list->tail->prev->value)
+		rra(list);
+	else if (list->head->value > list->head->next->value)
+		sa(list);
+}

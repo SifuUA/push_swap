@@ -82,5 +82,8 @@ int 				most_close_max(t_d_linklst *list, T med);
 void   				move_to_a(t_d_linklst *list_a, t_d_linklst *list_b);
 void   				optimize_check(t_d_linklst *list);
 void				little_help(t_d_linklst *list_a, t_d_linklst *list_b);
+void   				check(t_d_linklst *list);
+void				check_1(t_d_linklst *b);
+void    			check_2(t_d_linklst *list);
 
 #endif
