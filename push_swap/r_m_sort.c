@@ -37,7 +37,9 @@ void	piv_b(t_d_linklst *a, t_d_linklst *b)
 	t_d_linklst *c;
 	T			med;
 	T 			count;
+	T 			i;
 
+	i = 0;
 	c = ft_list_dup(b);
 	quick_sort(c->head, c->tail);
 	med = find_median(c);
@@ -47,18 +49,27 @@ void	piv_b(t_d_linklst *a, t_d_linklst *b)
 	{
 		if (b->head->value >= med)
 		{
-			check_1(b);
+			little_help(a, b);
+			//check_1(b);
 			pa(a, b);
 			little_help(a, b);
 			count--;
 		}
 		else
 		{
-			if (most_close_max(a, med) > a->size / 2)// проблема вибору серед 3 чисел
+			if (most_close_max(a, med) > a->size / 2)
 				rrb(b);
 			else
+			{
 				rb(b);
+				i++;
+			}
 		}
+	}
+	while (i > 0)
+	{
+		rrb(b);
+		i--;
 	}
 	r_w_sort(a, b);
 	move_to_a(a, b);

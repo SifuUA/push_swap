@@ -10,10 +10,12 @@ void	little_help(t_d_linklst *list_a, t_d_linklst *list_b)
 
 void    move_to_a(t_d_linklst *list_a, t_d_linklst *list_b)
 {
-	little_help(list_a, list_b);
 	check_1(list_b);
 	while (list_b->size > 0)
+	{
+		little_help(list_a, list_b);
 		pa(list_a, list_b);
+	}
 }
 
 int 	most_close_min(t_d_linklst *list, T med)
@@ -81,7 +83,8 @@ void	check_1(t_d_linklst *b)
 			rrb(b);
 			sb(b);
 		}
-		else if (b->head->value < b->head->next->value && b->head->next->value < b->head->next->next->value)
+		else if (b->head->value < b->head->next->value &&
+				b->head->next->value < b->head->next->next->value)
 		{
 			sb(b);
 			rb(b);
@@ -89,12 +92,23 @@ void	check_1(t_d_linklst *b)
 			rrb(b);
 			sb(b);
 		}
-		/*else if (b->head->value > b->head->next->value && b->head->next->next->value < b->head->value)
+		else if (b->head->value < b->head->next->value &&
+				b->head->next->next->value < b->head->next->value &&
+				b->head->next->next->value > b->head->value)
+		{
+			sb(b);
+			rb(b);
+			sb(b);
+			rrb(b);
+		}
+		else if (b->head->value > b->head->next->value &&
+				b->head->value > b->head->next->next->value &&
+				b->head->next->value < b->head->next->next->value)
 		{
 			rb(b);
 			sb(b);
 			rrb(b);
-		}*/
+		}
 		else if (b->head->value < b->head->next->value)
 			sb(b);
 	}
