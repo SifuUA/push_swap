@@ -11,12 +11,16 @@ void	piv_a(t_d_linklst *a, t_d_linklst *b)
 	quick_sort(c->head, c->tail);
 	med = find_median(c);
 	count = count_small(a, med);
-	check_2(a);
+	//check_2(a);
+	//if (a->size == 3)
+		//sort_three(a);
 	while (count > 0 && !is_sort(a))
 	{
 		if (a->head->value < med)
 		{
+			little_help_b(b);
 			pb(a, b);
+			little_help_b(b);
 			count--;
 		}
 		else

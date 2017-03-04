@@ -85,5 +85,6 @@ void				little_help(t_d_linklst *list_a, t_d_linklst *list_b);
 void   				check(t_d_linklst *list);
 void				check_1(t_d_linklst *b);
 void    			check_2(t_d_linklst *list);
+void				little_help_b(t_d_linklst *list_b);
 
 #endif

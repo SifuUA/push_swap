@@ -8,6 +8,12 @@ void	little_help(t_d_linklst *list_a, t_d_linklst *list_b)
 		sa(list_a);
 }
 
+void	little_help_b(t_d_linklst *list_b)
+{
+	if (list_b->head != NULL && list_b->size > 1 && list_b->head->value < list_b->head->next->value)
+		sb(list_b);
+}
+
 void    move_to_a(t_d_linklst *list_a, t_d_linklst *list_b)
 {
 	check_1(list_b);
@@ -114,7 +120,7 @@ void	check_1(t_d_linklst *b)
 	}
 }
 
-void    check_2(t_d_linklst *list)
+/*void    check_2(t_d_linklst *list)
 {
 
 	if (list->tail->value < list->tail->prev->value && list->tail->value > list->head->value)
@@ -131,4 +137,37 @@ void    check_2(t_d_linklst *list)
 		rra(list);
 	else if (list->head->value > list->head->next->value)
 		sa(list);
+}*/
+
+void	check_2(t_d_linklst *a)
+{
+	if (a->size >= 3)
+	{
+
+		if (a->head->value < a->head->next->value &&
+				 a->head->next->next->value < a->head->next->value &&
+				 a->head->next->next->value > a->head->value)
+		{
+			sa(a);
+			ra(a);
+			rra(a);
+		}
+		else if (a->head->value > a->head->next->value &&
+				 a->head->value > a->head->next->next->value &&
+				 a->head->next->value < a->head->next->next->value)
+		{
+			sa(a);
+			ra(a);
+			sa(a);
+			rra(a);
+		}
+		else if (a->head->next->value < a->head->next->next->value &&
+					 a->head->next->next->value > a->head->value &&
+					 a->head->value > a->head->next->value)
+		{
+			sa(a);
+		}
+		else if (a->head->value < a->head->next->value)
+			sa(a);
+	}
 }
