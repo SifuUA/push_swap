@@ -14,7 +14,6 @@ void	piv_a(t_d_linklst *a, t_d_linklst *b)
 	check_2(a);
 	while (count > 0 && !is_sort(a))
 	{
-		//check_2(a);
 		if (a->head->value < med)
 		{
 			pb(a, b);
@@ -50,7 +49,6 @@ void	piv_b(t_d_linklst *a, t_d_linklst *b)
 		if (b->head->value >= med)
 		{
 			little_help(a, b);
-			//check_1(b);
 			pa(a, b);
 			little_help(a, b);
 			count--;
