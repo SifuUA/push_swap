@@ -16,7 +16,7 @@ void	little_help_b(t_d_linklst *list_b)
 
 void    move_to_a(t_d_linklst *list_a, t_d_linklst *list_b)
 {
-	check_1(list_b);
+	//check_1(list_b);
 	while (list_b->size > 0)
 	{
 		little_help(list_a, list_b);
@@ -45,17 +45,27 @@ int 	most_close_max(t_d_linklst *list, T med)
 {
 	t_node	*tmp;
 	int 	i;
+	int 	j;
 
 	tmp = list->head;
 	i = 1;
+	j = 1;
 	while (tmp)
 	{
 		if (tmp->value > med)
-			return (i);
+			break ;
 		i++;
 		tmp = tmp->next;
 	}
-	return (0);
+	tmp = list->tail;
+	while (tmp)
+	{
+		if (tmp->value > med)
+			break ;
+		j++;
+		tmp = tmp->prev;
+	}
+	return (i <= j ? 0 : 1);
 }
 
 void    optimize_check(t_d_linklst *list)
@@ -170,4 +180,18 @@ void	check_2(t_d_linklst *a)
 		else if (a->head->value < a->head->next->value)
 			sa(a);
 	}
+}
+
+int 	if_big(t_d_linklst *l, T val)
+{
+	t_node	*tmp;
+
+	tmp = l->head;
+	while (tmp)
+	{
+		if(tmp->value > val)
+			return (1);
+		tmp = tmp->next;
+	}
+	return (0);
 }

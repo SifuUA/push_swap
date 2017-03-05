@@ -25,6 +25,7 @@ typedef struct      s_d_linklst
 	size_t          size;
 	size_t          elem_pos;
 	size_t 			count_of_op;
+	size_t 			f_size;
 
 	T 				median;
 	T 				min;
@@ -86,5 +87,6 @@ void   				check(t_d_linklst *list);
 void				check_1(t_d_linklst *b);
 void    			check_2(t_d_linklst *list);
 void				little_help_b(t_d_linklst *list_b);
+int 				if_big(t_d_linklst *l, T val);
 
 #endif

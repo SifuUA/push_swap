@@ -50,6 +50,7 @@ int             main(int argc, char **argv)
 		printList(list_a);
 	//	push_swap(list_a, list_b);
 	//	r_sort(list_a, list_b, len);
+		list_a->f_size = list_a->size;
 		r_w_sort(list_a, list_b);
 		printList(list_a);
 	}
