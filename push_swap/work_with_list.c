@@ -87,7 +87,7 @@ void            printList(t_d_linklst *list)
 	tmp = list->head;
 	while (tmp)
 	{
-		ft_putnbr(tmp->value);
+		ft_putnbr((int)tmp->value);
 		write(1, " ", 1);
 		tmp = tmp->next;
 	}

@@ -16,11 +16,12 @@ void	little_help_b(t_d_linklst *list_b)
 
 void    move_to_a(t_d_linklst *list_a, t_d_linklst *list_b)
 {
-	//check_1(list_b);
+	check_1(list_b);
 	while (list_b->size > 0)
 	{
 		little_help(list_a, list_b);
 		pa(list_a, list_b);
+		little_help(list_a, list_b);
 	}
 }
 
@@ -52,7 +53,7 @@ int 	most_close_max(t_d_linklst *list, T med)
 	j = 1;
 	while (tmp)
 	{
-		if (tmp->value > med)
+		if (if_biggest(list, tmp->value))
 			break ;
 		i++;
 		tmp = tmp->next;
@@ -60,7 +61,7 @@ int 	most_close_max(t_d_linklst *list, T med)
 	tmp = list->tail;
 	while (tmp)
 	{
-		if (tmp->value > med)
+		if (if_biggest(list, tmp->value))
 			break ;
 		j++;
 		tmp = tmp->prev;
@@ -182,16 +183,33 @@ void	check_2(t_d_linklst *a)
 	}
 }
 
-int 	if_big(t_d_linklst *l, T val)
+int 	if_biggest(t_d_linklst *l, T val)
 {
 	t_node	*tmp;
+	T 		biggest;
 
 	tmp = l->head;
+	biggest = tmp->value;
 	while (tmp)
 	{
-		if(tmp->value > val)
-			return (1);
+		if(tmp->value > biggest)
+			biggest = tmp->value;
 		tmp = tmp->next;
+	}
+	return (biggest == val ? 1 : 0);
+}
+
+int 	search(t_d_linklst *l, T count, T val)
+{
+	t_node	*p;
+
+	p = l->tail;
+	while (count > 0)
+	{
+		if (if_biggest(l, p->value))
+			return (1);
+		count--;
+		p = p->prev;
 	}
 	return (0);
 }

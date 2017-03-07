@@ -87,6 +87,6 @@ void   				check(t_d_linklst *list);
 void				check_1(t_d_linklst *b);
 void    			check_2(t_d_linklst *list);
 void				little_help_b(t_d_linklst *list_b);
-int 				if_big(t_d_linklst *l, T val);
-
+int 				if_biggest(t_d_linklst *l, T val);
+int 	search(t_d_linklst *l, T count, T val);
 #endif
