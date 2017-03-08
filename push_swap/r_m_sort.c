@@ -6,8 +6,11 @@ void	piv_a(t_d_linklst *a, t_d_linklst *b, char **str)
 	t_d_linklst *c;
 	T			med;
 	T 		count;
+	int 		i;
 
-	c = ft_list_dup(a);
+
+	i = 0;
+	c = a->flag == 0 ? ft_list_dup(a) : ft_list_dup_to(a);
 	quick_sort(c->head, c->tail);
 	med = find_median(c);
 	count = count_small(a, med);
@@ -27,10 +30,17 @@ void	piv_a(t_d_linklst *a, t_d_linklst *b, char **str)
 		}
 		else
 		{
-			if (most_close_min(a, med) > a->size / 2)// проблема вибору серед 3 чисел
-				rra(a, str);
-			else
-				ra(a, str);
+			ra(a, str);
+			i++;
+		}
+	}
+	if (a->flag != 0)
+	{
+		while (i > 0)
+		{
+			rra(a, str);
+			little_help(a, b, str);
+			i--;
 		}
 	}
 	r_w_sort(a, b, str);
@@ -48,10 +58,11 @@ void	piv_b(t_d_linklst *a, t_d_linklst *b, char **str)
 	quick_sort(c->head, c->tail);
 	med = find_median(c);
 	count = count_large(b, med);
-	//check_1(b, str);
+	check_1(b, str);
+	a->flag = 1;
 	while (count >= 0)
 	{
-		little_help_b(b, str);
+		//little_help_b(b, str);
 		if (b->head->value >= med /*&& if_biggest(b, b->head->value)*/)
 		{
 			//little_help(a, b);
@@ -62,7 +73,7 @@ void	piv_b(t_d_linklst *a, t_d_linklst *b, char **str)
 		}
 		else
 		{
-			if (search(b, i, b->head->value))
+			/*if (search(b, i, b->head->value))
 			{
 				while (i > 0)
 				{
@@ -78,13 +89,14 @@ void	piv_b(t_d_linklst *a, t_d_linklst *b, char **str)
 							rrb(b, str);
 					}
 					else
+
 						rb(b, str);
 			}
 			else
-			{
+			{*/
 					rb(b, str);
 					i++;
-			}
+			//}
 		}
 
 	}
@@ -100,7 +112,7 @@ void	r_w_sort(t_d_linklst *a, t_d_linklst *b, char **str)
 {
 	if (a->size > 2 && !is_sort(a))
 		piv_a(a, (t_d_linklst *)malloc(sizeof(t_d_linklst)), str);
-	if (b->size > 2 && !is_sort(b))
+	if (b->size > 2)
 		piv_b(a, b, str);
 	move_to_a(a, b, str);
 }

@@ -26,6 +26,7 @@ typedef struct      s_d_linklst
 	size_t          elem_pos;
 	size_t 			count_of_op;
 	size_t 			f_size;
+	int 			flag;
 
 	T 				median;
 	T 				min;
@@ -87,7 +88,8 @@ void				check_1(t_d_linklst *b, char **str);
 void    			check_2(t_d_linklst *list);
 void				little_help_b(t_d_linklst *list_b, char **str);
 int 				if_biggest(t_d_linklst *l, T val);
-int 	search(t_d_linklst *l, T count, T val);
-void	revers(char *str, int i, int tmp);
-void	revers1(char *str, int i, int tmp);
+int 				search(t_d_linklst *l, T count, T val);
+void				revers(char *str, int i, int tmp);
+void				revers1(char *str, int i, int tmp);
+t_d_linklst			*ft_list_dup_to(t_d_linklst *list);
 #endif
