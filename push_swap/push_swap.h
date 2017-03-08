@@ -85,9 +85,15 @@ void				little_help(t_d_linklst *list_a, t_d_linklst *list_b, char **str);
 void   				check(t_d_linklst *list);
 void				check_1(t_d_linklst *b, char **str);
 void    			check_2(t_d_linklst *list);
+<<<<<<< HEAD
 void				little_help_b(t_d_linklst *list_b, char **str);
 int 				if_biggest(t_d_linklst *l, T val);
 int 	search(t_d_linklst *l, T count, T val);
 void	revers(char *str, int i, int tmp);
 void	revers1(char *str, int i, int tmp);
+=======
+void				little_help_b(t_d_linklst *list_b);
+int 				if_biggest(t_d_linklst *l, T val);
+int 	search(t_d_linklst *l, T count, T val);
+>>>>>>> c5ff5881f2ca793cb9fec89cc7d6f8d358a7a582
 #endif

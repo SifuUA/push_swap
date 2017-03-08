@@ -22,7 +22,6 @@ void    move_to_a(t_d_linklst *list_a, t_d_linklst *list_b, char **str)
 		little_help(list_a, list_b, str);
 		pa(list_a, list_b, str);
 		little_help(list_a, list_b, str);
-	}
 }
 
 int 	most_close_min(t_d_linklst *list, T med)
