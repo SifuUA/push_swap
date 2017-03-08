@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void    swap(T *a, T *b)
+void    swaps(T *a, T *b)
 {
 	T tmp;
 
@@ -24,12 +24,12 @@ t_node  *partition(t_node *head, t_node *tail)
 	{
 		if(curr->value < piv->value)
 		{
-			swap(&(small->value), &(curr->value));
+			swaps(&(small->value), &(curr->value));
 			small = small->next;
 		}
 		curr = curr->next;
 	}
-	swap(&(piv->value), &(small->value));
+	swaps(&(piv->value), &(small->value));
 	return small;
 }
 

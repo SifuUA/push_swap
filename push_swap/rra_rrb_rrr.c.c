@@ -1,8 +1,9 @@
 #include "push_swap.h"
 
-void 	rra(t_d_linklst *list)
+void 	rra(t_d_linklst *list, char **str)
 {
 	t_node	*tmp;
+	char 	*p;
 
 	if (list->size > 1)
 	{
@@ -14,13 +15,16 @@ void 	rra(t_d_linklst *list)
 		tmp->prev = NULL;
 		list->head->prev = tmp;
 		list->head = tmp;
-		put("rra");
+		p = *str;
+		*str = ft_strjoin(p, "9");
+		ft_strdel(&p);
 	}
 }
 
-void 	rrb(t_d_linklst *list)
+void 	rrb(t_d_linklst *list, char **str)
 {
 	t_node	*tmp;
+	char	*p;
 
 	if (list->size > 1)
 	{
@@ -32,13 +36,20 @@ void 	rrb(t_d_linklst *list)
 		tmp->prev = NULL;
 		list->head->prev = tmp;
 		list->head = tmp;
-		put("rrb");
+		p = *str;
+		*str = ft_strjoin(p, "0");
+		ft_strdel(&p);
 	}
 }
 
-void 	rrr(t_d_linklst *list_a, t_d_linklst *list_b)
+void 	rrr(t_d_linklst *list_a, t_d_linklst *list_b, char **str)
 {
-	rra(list_a);
-	rrb(list_b);
-	put("rrr");
+	char	*p;
+
+	p = "";
+	rra(list_a, &p);
+	rrb(list_b, &p);
+	p = *str;
+	*str = ft_strjoin(p, "rrr");
+	ft_strdel(&p);
 }

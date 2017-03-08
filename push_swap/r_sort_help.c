@@ -1,27 +1,27 @@
 #include "push_swap.h"
 
-void    sort_three_rev(t_d_linklst *list_a)
+void    sort_three_rev(t_d_linklst *list_a, char **str)
 {
 	if (list_a->head->value > list_a->head->next->value &&
 		list_a->head->value < list_a->tail->value)
-		rrb(list_a);
+		rrb(list_a, str);
 	else if (list_a->head->value > list_a->head->next->value &&
 			 list_a->tail->value > list_a->tail->prev->value)
 	{
-		sb(list_a);
-		rb(list_a);
+		sb(list_a, str);
+		rb(list_a, str);
 	}
 	else if (list_a->tail->value < list_a->tail->prev->value &&
 			 list_a->tail->value < list_a->head->value)
-		sb(list_a);
+		sb(list_a, str);
 	else if (list_a->head->value < list_a->tail->value &&
 			 list_a->tail->value < list_a->tail->prev->value)
 	{
-		rb(list_a);
+		rb(list_a, str);
 	}
 	else
 	{
-		rrb(list_a);
+		rrb(list_a, str);
 	}
 }
 
@@ -57,37 +57,18 @@ void 	find_median_b(t_d_linklst *list, size_t len)
 	list->median = p->value;
 }
 
-void	move_from_b(t_d_linklst *list_a, t_d_linklst *list_b, size_t len)
+size_t 	count_large(t_d_linklst *list, T median)
 {
-	size_t	i;
-	size_t 	j;
-	size_t 	k;
+	t_node	*tmp;
+	size_t 	count;
 
-	i = len / 2;
-	j = 0;
-	k = 0;
-	while (list_a->ar[j] != 0)
-		j++;
-	list_b->ar[j] = i;
-	while (i > 0  && find_min(list_b))
+	count = 0;
+	tmp = list->head;
+	while (tmp)
 	{
-		if (list_b->head->value >= list_b->median)
-		{
-			pa(list_a, list_b);
-			if (list_a->head->value > list_a->head->next->value)
-				sa(list_a);
-			i--;
-		}
-		else
-		{
-			rb(list_b);
-			k++;
-		}
+		if (tmp->value > median)
+			count++;
+		tmp = tmp->next;
 	}
-	while (k > 0)
-	{
-		rrb(list_b);
-		k--;
-	}
+	return (count);
 }
-

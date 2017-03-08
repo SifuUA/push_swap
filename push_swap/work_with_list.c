@@ -10,12 +10,6 @@ t_d_linklst     *creat(void) // создание листа
 	tmp->size = 0;
 	tmp->head = NULL;
 	tmp->tail = NULL;
-	/*tmp->ar = malloc(sizeof(size_t) * 1000);
-	while (i < 1000)
-	{
-		tmp->ar[i] = 0;
-		i++;
-	}*/
 	return (tmp);
 }
 
@@ -87,7 +81,7 @@ void            printList(t_d_linklst *list)
 	tmp = list->head;
 	while (tmp)
 	{
-		ft_putnbr(tmp->value);
+		ft_putnbr((int)tmp->value);
 		write(1, " ", 1);
 		tmp = tmp->next;
 	}

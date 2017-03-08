@@ -50,3 +50,45 @@ T 	find_median(t_d_linklst *list)
 	}
 	return (p->value);
 }
+void    sort_three(t_d_linklst *list_a, char **str)
+{
+	if (list_a->head->value > list_a->head->next->value &&
+		list_a->head->value < list_a->tail->value)
+		sa(list_a, str);
+	else if (list_a->head->value > list_a->head->next->value &&
+			 list_a->tail->value > list_a->tail->prev->value)
+		ra(list_a, str);
+	else if (list_a->tail->value < list_a->tail->prev->value &&
+			 list_a->tail->value < list_a->head->value)
+		rra(list_a, str);
+	else if (list_a->head->value > list_a->tail->value &&
+			 list_a->tail->value < list_a->tail->prev->value)
+	{
+		sa(list_a, str);
+		rra(list_a, str);
+	}
+	else if (list_a->head->value < list_a->tail->value &&
+			 list_a->tail->value < list_a->tail->prev->value)
+	{
+		rra(list_a, str);
+		sa(list_a, str);
+	}
+}
+
+int     is_sort(t_d_linklst *list)
+{
+	t_node  *tmp;
+	size_t  i;
+
+	i = 0;
+	tmp = list->head;
+	while (tmp->next != NULL)
+	{
+		if (tmp->value < tmp->next->value)
+			i++;
+		tmp = tmp->next;
+	}
+	if (i == list->size - 1)
+		return (1);
+	return (0);
+}

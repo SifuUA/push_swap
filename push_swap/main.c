@@ -40,7 +40,9 @@ int             main(int argc, char **argv)
 	t_d_linklst     *list_a;
 	t_d_linklst     *list_b;
 	size_t 			len;
+	char 			*str;
 
+	str = ft_strnew(5000);
 	list_a = creat();
 	list_b = creat();
 	len	= 0;
@@ -51,7 +53,8 @@ int             main(int argc, char **argv)
 	//	push_swap(list_a, list_b);
 	//	r_sort(list_a, list_b, len);
 		list_a->f_size = list_a->size;
-		r_w_sort(list_a, list_b);
+		r_w_sort(list_a, list_b, &str);
+		optimize(str);
 		printList(list_a);
 	}
 	else
