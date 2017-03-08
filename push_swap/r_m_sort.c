@@ -23,8 +23,6 @@ void	piv_a(t_d_linklst *a, t_d_linklst *b, char **str)
         }
 		if (a->head->value < med)
 		{
-			//little_help_b(b);
-		//	check_1(b);
 			pb(a, b, str);
 			count--;
 		}
@@ -43,6 +41,7 @@ void	piv_a(t_d_linklst *a, t_d_linklst *b, char **str)
 			i--;
 		}
 	}
+	a->flag = 0;
 	r_w_sort(a, b, str);
 }
 
@@ -58,45 +57,20 @@ void	piv_b(t_d_linklst *a, t_d_linklst *b, char **str)
 	quick_sort(c->head, c->tail);
 	med = find_median(c);
 	count = count_large(b, med);
-	check_1(b, str);
+	check_1(b, med, str);
 	a->flag = 1;
 	while (count >= 0)
 	{
 		//little_help_b(b, str);
-		if (b->head->value >= med /*&& if_biggest(b, b->head->value)*/)
+		if (b->head->value >= med)
 		{
-			//little_help(a, b);
-			//check_1(b);
 			pa(a, b, str);
-			little_help(a, b, str);
 			count--;
 		}
 		else
 		{
-			/*if (search(b, i, b->head->value))
-			{
-				while (i > 0)
-				{
-					rrb(b, str);
-					i--;
-				}
-			}
-			else if (a->size + b->size == a->f_size)
-			{
-					if (most_close_max(b, med))
-					{
-						while (!if_biggest(b, b->head->value))
-							rrb(b, str);
-					}
-					else
-
-						rb(b, str);
-			}
-			else
-			{*/
-					rb(b, str);
-					i++;
-			//}
+			rb(b, str);
+			i++;
 		}
 
 	}

@@ -84,7 +84,7 @@ void   				move_to_a(t_d_linklst *list_a, t_d_linklst *list_b, char **str);
 void   				optimize(char *str);
 void				little_help(t_d_linklst *list_a, t_d_linklst *list_b, char **str);
 void   				check(t_d_linklst *list);
-void				check_1(t_d_linklst *b, char **str);
+void				check_1(t_d_linklst *b, T med, char **str);
 void    			check_2(t_d_linklst *list);
 void				little_help_b(t_d_linklst *list_b, char **str);
 int 				if_biggest(t_d_linklst *l, T val);

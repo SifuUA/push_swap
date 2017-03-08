@@ -16,7 +16,6 @@ void    move_to_a(t_d_linklst *list_a, t_d_linklst *list_b, char **str)
 {
 	//check_1(list_b, str);
 	while (list_b->size > 0) {
-		little_help_b(list_b, str);
 		pa(list_a, list_b, str);
 		little_help(list_a, list_b, str);
 	}
@@ -66,10 +65,12 @@ int 	most_close_max(t_d_linklst *list, T med)
 	return (i <= j ? 0 : 1);
 }
 
-void	check_1(t_d_linklst *b, char **str)
+void	check_1(t_d_linklst *b, T med, char **str)
 {
 	if (b->size >= 3)
 	{
+		if (b->head->value >= med && b->head->next->value >= med && b->head->next->next->value >= med)
+			return ;
 		if (b->head->next->value < b->head->next->next->value &&
 				b->head->next->next->value > b->head->value &&
 				b->head->value > b->head->next->value)
