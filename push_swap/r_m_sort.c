@@ -48,7 +48,7 @@ void	piv_b(t_d_linklst *a, t_d_linklst *b, char **str)
 	quick_sort(c->head, c->tail);
 	med = find_median(c);
 	count = count_large(b, med);
-	//check_1(b);
+	//check_1(b, str);
 	while (count >= 0)
 	{
 		little_help_b(b, str);

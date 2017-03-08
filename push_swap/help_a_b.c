@@ -2,8 +2,6 @@
 
 void	little_help(t_d_linklst *list_a, t_d_linklst *list_b, char **str)
 {
-	//if (list_b->head != NULL && list_b->size > 1 && list_b->head->value < list_b->head->next->value)
-	//	sb(list_b);
 	if (list_a->head != NULL && list_a->size > 1 && list_a->head->value > list_a->head->next->value)
 		sa(list_a, str);
 }
@@ -17,11 +15,11 @@ void	little_help_b(t_d_linklst *list_b, char **str)
 void    move_to_a(t_d_linklst *list_a, t_d_linklst *list_b, char **str)
 {
 	check_1(list_b, str);
-	while (list_b->size > 0)
-	{
+	while (list_b->size > 0) {
 		little_help(list_a, list_b, str);
 		pa(list_a, list_b, str);
 		little_help(list_a, list_b, str);
+	}
 }
 
 int 	most_close_min(t_d_linklst *list, T med)
