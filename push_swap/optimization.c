@@ -1,9 +1,9 @@
 #include "push_swap.h"
 
-void	route(char *str, int i, int tmp)
+void	route(char *str, int tmp)
 {
 
-	tmp = str[i + 1] - '0';
+	tmp = str[1] - '0';
 	if (tmp == 7)
 		ft_putstr("rr");
 	else
@@ -11,20 +11,20 @@ void	route(char *str, int i, int tmp)
 	write(1, "\n", 1);
 }
 
-void	route1(char *str, int i, int tmp)
+void	route1(char *str, int tmp)
 {
 
-	tmp = str[i + 1] - '0';
+	tmp = str[1] - '0';
 	if (tmp == 6)
 		ft_putstr("rr");
 	else
 		ft_putstr("rb");
 	write(1, "\n", 1);
 }
-void	swap(char **str, int i, int tmp)
+void	swap(char **str, int tmp)
 {
 
-	tmp = (*str)[i + 1] - '0';
+	tmp = (*str)[1] - '0';
 	if (tmp == 4)
 	{
 		ft_putstr("ss");
@@ -35,10 +35,10 @@ void	swap(char **str, int i, int tmp)
 	write(1, "\n", 1);
 }
 
-void	swap1(char **str, int i, int tmp)
+void	swap1(char **str, int tmp)
 {
 
-	tmp = (*str)[i + 1] - '0';
+	tmp = (*str)[1] - '0';
 	if (tmp == 3)
 	{
 		ft_putstr("ss");
@@ -51,31 +51,35 @@ void	swap1(char **str, int i, int tmp)
 
 void	optimize(char *str)
 {
-	int i;
 	int tmp;
+	size_t count;
 
-	i = 0;
-	while (str[i])
+	count = 0;
+	while (*str)
 	{
-		tmp = str[i] - '0';
+		tmp = *str - '0';
 		if (tmp == 3)
-			swap(&str, i, tmp);
+			swap(&str, tmp);
 		else if (tmp == 4)
-			swap1(&str, i, tmp);
+			swap1(&str, tmp);
 		else if (tmp == 6)
-			route(str, i, tmp);
+			route(str, tmp);
 		else if (tmp == 7)
-			route1(str, i, tmp);
+			route1(str, tmp);
 		else if (tmp == 0)
-			revers(str, tmp, i);
+			revers(str, tmp);
 		else if (tmp == 9)
-			revers1(str, tmp, i);
+			revers1(str, tmp);
 		else
 		{
-			write(1, &str[i], 2);
+			write(1, &*str, 2);
 			write(1, "\n", 1);
 			str++;
 		}
 		str++;
+		count++;
 	}
+	ft_putstr("COUNT = ");
+	ft_putnbr((int)count);
+	ft_putstr("\n");
 }

@@ -26,7 +26,7 @@ void 	rrb(t_d_linklst *list, char **str)
 	t_node	*tmp;
 	char	*p;
 
-	if (list->size > 1)
+	if (list->size > 0)
 	{
 		tmp = list->tail;
 		list->tail = list->tail->prev;

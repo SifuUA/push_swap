@@ -10,6 +10,7 @@ t_d_linklst     *creat(void) // создание листа
 	tmp->size = 0;
 	tmp->head = NULL;
 	tmp->tail = NULL;
+	tmp->flag = 0;
 	return (tmp);
 }
 
@@ -31,35 +32,38 @@ void            push_front(t_d_linklst *list, int value)
 	list->size++;
 }
 
-void            push_head(t_d_linklst *list1, t_d_linklst *list2)
+void            push_head(t_d_linklst *dest, t_d_linklst *src)
 {
 	t_node  *tmp;
+	t_node	*p;
 
-	tmp = list2->head;
-	if (list2->size > 1)
+	tmp = src->head;
+	if (src->size > 1)
 	{
-		list2->head->next->prev = NULL;
-		list2->head = list2->head->next;
-	}
-	tmp->prev = NULL;
-	tmp->next = NULL;
-	if (list1->head == NULL)
-		list1->head = tmp;
-	else
-	{
-		list1->head->prev = tmp;
-		tmp->next = list1->head;
+		p = src->head->next;
+		p->prev = NULL;
+		src->head = p;
+		tmp->next = NULL;
 		tmp->prev = NULL;
-		list1->head = tmp;
 	}
-	if (list1->tail == NULL)
-		list1->tail = tmp;
-	list2->size--;
-	list1->size++;
-	if (list2->size == 0)
+	if (dest->head == NULL)
+		dest->head = tmp;
+	else 
 	{
-		list2->head = NULL;
-		list2->tail = NULL;
+		p = dest->head;
+		p->prev = tmp;
+		tmp->next = p;
+		tmp->prev = NULL;
+		dest->head = tmp;
+	}
+	if (dest->tail == NULL)
+		dest->tail = tmp;
+	src->size--;
+	dest->size++;
+	if (src->size == 0)
+	{
+		src->head = NULL;
+		src->tail = NULL;
 	}
 }
 void 			del_list(t_d_linklst *list)

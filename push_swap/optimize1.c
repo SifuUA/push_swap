@@ -1,9 +1,9 @@
 #include "push_swap.h"
 
-void	revers(char *str, int i, int tmp)
+void	revers(char *str, int tmp)
 {
 
-	tmp = str[i + 1] - '0';
+	tmp = str[1] - '0';
 	if (tmp == 9)
 		ft_putstr("rrr");
 	else
@@ -11,10 +11,9 @@ void	revers(char *str, int i, int tmp)
 	write(1, "\n", 1);
 }
 
-void	revers1(char *str, int i, int tmp)
+void	revers1(char *str, int tmp)
 {
-
-	tmp = str[i + 1] - '0';
+	tmp = str[1] - '0';
 	if (tmp == 0)
 		ft_putstr("rrr");
 	else

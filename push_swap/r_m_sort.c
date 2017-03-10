@@ -13,7 +13,7 @@ void	piv_a(t_d_linklst *a, t_d_linklst *b, char **str)
 	c = a->flag == 0 ? ft_list_dup(a) : ft_list_dup_to(a);
 	quick_sort(c->head, c->tail);
 	med = find_median(c);
-	count = count_small(a, med);
+	count = count_small(c, med);
 	while (count > 0 && !is_sort(a))
 	{
         if (a->size == 3)
@@ -57,11 +57,11 @@ void	piv_b(t_d_linklst *a, t_d_linklst *b, char **str)
 	quick_sort(c->head, c->tail);
 	med = find_median(c);
 	count = count_large(b, med);
-	check_1(b, med, str);
+	if (b->size > 2 && b->head->value >= med && b->head->next->value >= med)
+		little_help_b(b, str);
 	a->flag = 1;
 	while (count >= 0)
 	{
-		//little_help_b(b, str);
 		if (b->head->value >= med)
 		{
 			pa(a, b, str);
@@ -85,8 +85,8 @@ void	piv_b(t_d_linklst *a, t_d_linklst *b, char **str)
 void	r_w_sort(t_d_linklst *a, t_d_linklst *b, char **str)
 {
 	if (a->size > 2 && !is_sort(a))
-		piv_a(a, (t_d_linklst *)malloc(sizeof(t_d_linklst)), str);
-	if (b->size > 2)
+		piv_a(a, creat(), str);
+	if (b->size > 2 && !is_sort_b(b))
 		piv_b(a, b, str);
 	move_to_a(a, b, str);
 }
