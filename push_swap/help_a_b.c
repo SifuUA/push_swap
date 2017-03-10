@@ -14,12 +14,12 @@ void	little_help_b(t_d_linklst *list_b, char **str)
 
 void    move_to_a(t_d_linklst *list_a, t_d_linklst *list_b, char **str)
 {
-	check_1(list_b, str);
-	//little_help(list_a, list_b, str);
+	//check_1(list_b, str);
 	while (list_b->size > 0) {
 		little_help_b(list_b, str);
 		pa(list_a, list_b, str);
 		little_help(list_a, list_b, str);
+		//little_help_b(list_b, str);
 	}
 }
 

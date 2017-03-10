@@ -42,7 +42,7 @@ T 	find_median(t_d_linklst *list)
 	tmp = ft_list_dup(list);
 	quick_sort(tmp->head, tmp->tail);
 	p = tmp->head;
-	i = tmp->size / 2;
+	i = tmp->size % 2 == 0 ? tmp->size / 2 : tmp->size / 2 + 1;
 	while (i > 0)
 	{
 		p = p->next;

@@ -88,5 +88,5 @@ void				revers(char *str, int tmp);
 void				revers1(char *str, int tmp);
 t_d_linklst			*ft_list_dup_to(t_d_linklst *list);
 int					is_sort_b(t_d_linklst *b);
-int					try_help(t_d_linklst *l);
+int					try_help(t_d_linklst *l, int i);
 #endif

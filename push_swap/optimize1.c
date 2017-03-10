@@ -56,7 +56,7 @@ t_d_linklst	*ft_list_dup_to(t_d_linklst *list)
 		new->tail = new->tail->prev;
 		hz = new->tail->value;
 	}
-	i = (int) (list->size - i);
+	i = (int) ((list->size - i) + 1);
 	del_list(new);
 	tmp = list->head;
 	if (tmp != NULL)
