@@ -25,6 +25,9 @@ typedef struct      s_d_linklst
 	size_t          size;
 	size_t 			f_size;
 	int 			flag;
+	int 			fack;
+	int 			i;
+	int 			j;
 
 	T 				median;
 }                   t_d_linklst;
@@ -89,4 +92,6 @@ void				revers1(char *str, int tmp);
 t_d_linklst			*ft_list_dup_to(t_d_linklst *list);
 int					is_sort_b(t_d_linklst *b);
 int					try_help(t_d_linklst *l, int i);
+void				bum(t_d_linklst *a, t_d_linklst *b, char **str);
+void      optimize(char *str);
 #endif

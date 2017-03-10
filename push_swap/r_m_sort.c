@@ -25,6 +25,7 @@ void	piv_a(t_d_linklst *a, t_d_linklst *b, char **str)
 		{
 			pb(a, b, str);
 			count--;
+
 		}
 		else
 		{
@@ -51,6 +52,7 @@ void	piv_a(t_d_linklst *a, t_d_linklst *b, char **str)
 		}
 	}
 	a->flag = 0;
+	a->fack = 0;
 	r_w_sort(a, b, str);
 }
 
@@ -68,17 +70,15 @@ void	piv_b(t_d_linklst *a, t_d_linklst *b, char **str)
 	count = count_large(b, med);
 	if (b->size >= 2 && b->head->value >= med && b->head->next->value >= med)
 		little_help_b(b, str);
+	if (a->size + b->size == a->f_size)
+		a->fack = 1;
 	a->flag = 1;
 	while (count >= 0)
 	{
-		//if (is_sort_b(b))
-		//	return ;
 		if (b->head->value >= med)
 		{
 			pa(a, b, str);
 			count--;
-			//check_1(b, str);
-			//little_help_b(b, str);
 		}
 		else
 		{
@@ -86,11 +86,12 @@ void	piv_b(t_d_linklst *a, t_d_linklst *b, char **str)
 			i++;
 		}
 	}
-	while (i > 0 && a->size + b->size != a->f_size && !is_sort_b(b))
+	while (i > 0 && a->fack != 1 && !is_sort_b(b))
 	{
 		rrb(b, str);
 		i--;
 	}
+	a->fack = 0;
 	r_w_sort(a, b, str);
 }
 
