@@ -39,7 +39,6 @@ int             main(int argc, char **argv)
 {
 	t_d_linklst     *list_a;
 	t_d_linklst     *list_b;
-	size_t 			len;
 	char 			*str;
 
 	str = ft_strnew(5000);
@@ -50,13 +49,7 @@ int             main(int argc, char **argv)
 		write_in_list(list_a, argv);
 		printList(list_a);
 		list_a->f_size = list_a->size;
-		int i = 0;
-		/*while ( i < 1)
-		{
-			ra(list_a, &str);
-			i++;
-		}*/
-		r_w_sort(list_a, list_b, &str);
+		choose(list_a, list_b, &str);
 		optimize(str);
 		printList(list_a);
 	}
