@@ -97,4 +97,5 @@ void				bum(t_d_linklst *a, t_d_linklst *b, char **str);
 void 				sort_two(t_d_linklst *l, char **str);
 void      			optimize(char *str);
 void				check_3(t_d_linklst *a, char **str);
+void 				push_a_and_b(char **str, int tmp);
 #endif

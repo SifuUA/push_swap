@@ -51,9 +51,9 @@ int             main(int argc, char **argv)
 		printList(list_a);
 		list_a->f_size = list_a->size;
 		int i = 0;
-		/*while ( i < 3)
+		/*while ( i < 1)
 		{
-			rra(list_a, &str);
+			ra(list_a, &str);
 			i++;
 		}*/
 		r_w_sort(list_a, list_b, &str);

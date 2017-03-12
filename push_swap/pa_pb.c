@@ -9,7 +9,7 @@ void	pa(t_d_linklst *list_a, t_d_linklst *list_b, char **str)
 
 		push_head(list_a, list_b);
 		p = *str;
-		*str = ft_strjoin(p, "pa");
+		*str = ft_strjoin(p, "1");
 		ft_strdel(&p);
 }
 
@@ -21,7 +21,7 @@ void	pb(t_d_linklst *list_a, t_d_linklst *list_b, char **str)
 		return ;
 	push_head(list_b, list_a);
 	p = *str;
-	*str = ft_strjoin(p, "pb");
+	*str = ft_strjoin(p, "2");
 	ft_strdel(&p);
 }
 

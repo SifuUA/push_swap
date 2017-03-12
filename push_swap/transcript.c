@@ -76,12 +76,8 @@ void	optimize(char *str)
 			revers(&str, tmp);
 		else if (tmp == 9)
 			revers1(&str, tmp);
-		else
-		{
-			write(1, &*str, 2);
-			write(1, "\n", 1);
-			str++;
-		}
+		else if (tmp == 1 || tmp == 2)
+			push_a_and_b(&str, tmp);
 		str++;
 		count++;
 	}
