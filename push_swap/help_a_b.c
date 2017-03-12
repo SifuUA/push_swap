@@ -173,7 +173,7 @@ void	check_3(t_d_linklst *a, char **str)
 				 a->head->next->value > a->head->next->next->value)
 		{
 			sa(a, str);
-			ra(a, str);
+			rra(a, str);
 		}
 		else if (a->head->next->value > a->head->next->next->value &&
 				 a->head->next->next->value > a->head->value)

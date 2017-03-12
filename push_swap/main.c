@@ -49,7 +49,7 @@ int             main(int argc, char **argv)
 		write_in_list(list_a, argv);
 		printList(list_a);
 		list_a->f_size = list_a->size;
-		choose(list_a, list_b, &str);
+		do_it_shit(list_a, list_b, &str);
 		optimize(str);
 		printList(list_a);
 	}

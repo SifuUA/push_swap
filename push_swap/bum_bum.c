@@ -56,8 +56,17 @@ void	sort_four(t_d_linklst *a, t_d_linklst *b, char **str)
 	f = a->size != (a->f_size + a->n_size) ? 1 : 0;
 	if (!is_sort(a))
 	{
-		while (a->head->value != num) {
-			ra(a, str);// можно убрать пару операций ра или рра
+		while (a->head->value != num)
+		{
+			if (f == 0)
+			{
+				if (a->tail->value == num)
+					rra(a, str);
+				else
+					ra(a, str);
+			}
+			else
+				ra(a, str);// можно убрать пару операций ра или рра
 			i++;
 		}
 		pb(a, b, str);

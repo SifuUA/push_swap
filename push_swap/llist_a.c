@@ -14,6 +14,7 @@ t_d_linklst	*ft_list_dup(t_d_linklst *list)
 		push_front(new, (int)tmp->value);
 		tmp = tmp->next;
 	}
+	new->f_size = list->f_size;
 	return (new);
 }
 
