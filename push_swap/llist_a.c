@@ -42,7 +42,8 @@ T 	find_median(t_d_linklst *list)
 	tmp = ft_list_dup(list);
 	quick_sort(tmp->head, tmp->tail);
 	p = tmp->head;
-	i = tmp->size % 2 == 0 ? tmp->size / 2 : tmp->size / 2 + 1;
+	//i = tmp->size % 2 == 0 ? tmp->size / 2 : tmp->size / 2 + 1;
+	i = tmp->size / 2;
 	while (i > 0)
 	{
 		p = p->next;
@@ -60,7 +61,10 @@ void    sort_three(t_d_linklst *list_a, char **str)
 		ra(list_a, str);
 	else if (list_a->tail->value < list_a->tail->prev->value &&
 			 list_a->tail->value < list_a->head->value)
+	{
+		sa(list_a, str);
 		rra(list_a, str);
+	}
 	else if (list_a->head->value > list_a->tail->value &&
 			 list_a->tail->value < list_a->tail->prev->value)
 	{

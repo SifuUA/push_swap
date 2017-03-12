@@ -1,22 +1,28 @@
 #include "push_swap.h"
 
-void	revers(char *str, int tmp)
+void	revers(char **str, int tmp)
 {
 
-	tmp = str[1] - '0';
+	tmp = (*str)[1] - '0';
 	if (tmp == 9)
+	{
 		ft_putstr("rrr");
+		(*str)++;
+	}
 	else
 		ft_putstr("rrb");
 	write(1, "\n", 1);
 }
 
-void	revers1(char *str, int tmp)
+void	revers1(char **str, int tmp)
 {
-	tmp = str[1] - '0';
+	tmp = (*str)[1] - '0';
 	if (tmp == 0)
+	{
 		ft_putstr("rrr");
-	else
+		(*str)++;
+	}
+		else
 		ft_putstr("rra");
 	write(1, "\n", 1);
 }
@@ -56,7 +62,8 @@ t_d_linklst	*ft_list_dup_to(t_d_linklst *list)
 		new->tail = new->tail->prev;
 		hz = new->tail->value;
 	}
-	i = (int) ((list->size - i) + 1);
+	//i = (int) ((list->size - i) + 1);
+	i = (int) (list->size - i);
 	del_list(new);
 	tmp = list->head;
 	if (tmp != NULL)
@@ -67,5 +74,14 @@ t_d_linklst	*ft_list_dup_to(t_d_linklst *list)
 		tmp = tmp->next;
 		i--;
 	}
+	/*tmp = list->head;
+	if (tmp != NULL)
+		new = creat();
+	while (i < list->n_size)
+	{
+		push_front(new, (int)tmp->value);
+		tmp = tmp->next;
+		i++;
+	}*/
 	return (new);
 }

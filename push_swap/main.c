@@ -45,14 +45,17 @@ int             main(int argc, char **argv)
 	str = ft_strnew(5000);
 	list_a = creat();
 	list_b = creat();
-	len	= 0;
 	if (argc > 1)
 	{
 		write_in_list(list_a, argv);
 		printList(list_a);
-	//	push_swap(list_a, list_b);
-	//	r_sort(list_a, list_b, len);
 		list_a->f_size = list_a->size;
+		int i = 0;
+		/*while ( i < 3)
+		{
+			rra(list_a, &str);
+			i++;
+		}*/
 		r_w_sort(list_a, list_b, &str);
 		optimize(str);
 		printList(list_a);

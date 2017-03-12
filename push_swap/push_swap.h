@@ -28,6 +28,7 @@ typedef struct      s_d_linklst
 	int 			fack;
 	int 			i;
 	int 			j;
+	int				n_size;
 
 	T 				median;
 }                   t_d_linklst;
@@ -83,15 +84,17 @@ void   				optimize(char *str);
 void				little_help(t_d_linklst *list_a, t_d_linklst *list_b, char **str);
 void   				check(t_d_linklst *list);
 void				check_1(t_d_linklst *b, char **str);
-void    			check_2(t_d_linklst *list);
+void    			check_2(t_d_linklst *list, char **str);
 void				little_help_b(t_d_linklst *list_b, char **str);
 int 				if_biggest(t_d_linklst *l, T val);
 int 				search(t_d_linklst *l, T count, T val);
-void				revers(char *str, int tmp);
-void				revers1(char *str, int tmp);
+void				revers(char **str, int tmp);
+void				revers1(char **str, int tmp);
 t_d_linklst			*ft_list_dup_to(t_d_linklst *list);
 int					is_sort_b(t_d_linklst *b);
 int					try_help(t_d_linklst *l, int i);
 void				bum(t_d_linklst *a, t_d_linklst *b, char **str);
-void      optimize(char *str);
+void 				sort_two(t_d_linklst *l, char **str);
+void      			optimize(char *str);
+void				check_3(t_d_linklst *a, char **str);
 #endif

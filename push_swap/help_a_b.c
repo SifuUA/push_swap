@@ -16,9 +16,9 @@ void    move_to_a(t_d_linklst *list_a, t_d_linklst *list_b, char **str)
 {
 	//check_1(list_b, str);
 	while (list_b->size > 0) {
-		little_help_b(list_b, str);
+		//little_help_b(list_b, str);
 		pa(list_a, list_b, str);
-		little_help(list_a, list_b, str);
+		//little_help(list_a, list_b, str);
 		//little_help_b(list_b, str);
 	}
 }
@@ -71,11 +71,7 @@ void	check_1(t_d_linklst *b, char **str)
 {
 	if (b->size >= 3)
 	{
-		//if (b->head->value >= med && b->head->next->value >= med && b->head->next->next->value >= med)
-			//return ;
-		if (b->head->value < b->head->next->value)
-			sb(b, str);
-		else if (b->head->next->value < b->head->next->next->value &&
+		if (b->head->next->value < b->head->next->next->value &&
 				b->head->next->next->value > b->head->value &&
 				b->head->value > b->head->next->value)
 		{
@@ -110,61 +106,83 @@ void	check_1(t_d_linklst *b, char **str)
 			sb(b, str);
 			rrb(b, str);
 		}
+		else if (b->head->value < b->head->next->value)
+			sb(b, str);
 	}
 }
 
-/*void    check_2(t_d_linklst *list)
-{
-
-	if (list->tail->value < list->tail->prev->value && list->tail->value > list->head->value)
-	{
-		rra(list);
-		rra(list);
-		sa(list);
-		ra(list);
-		ra(list);
-	}
-	else if (list->head->value > list->head->next->value && list->tail->value < list->head->value)
-		ra(list);
-	else if (list->tail->value < list->head->value && list->tail->value < list->tail->prev->value)
-		rra(list);
-	else if (list->head->value > list->head->next->value)
-		sa(list);
-}*/
-
-/*void	check_2(t_d_linklst *a)
+void	check_2(t_d_linklst *a, char **str)
 {
 	if (a->size >= 3)
 	{
 
-		if (a->head->value < a->head->next->value &&
-				 a->head->next->next->value < a->head->next->value &&
-				 a->head->next->next->value > a->head->value)
+		if (a->head->next->value > a->head->value &&
+				 a->head->value > a->head->next->next->value)
 		{
-			sa(a);
-			ra(a);
-			rra(a);
+			ra(a, str);
+			sa(a, str);
+			rra(a, str);
+			sa(a, str);
 		}
-		else if (a->head->value > a->head->next->value &&
-				 a->head->value > a->head->next->next->value &&
+		else if (a->head->value > a->head->next->next->value &&
 				 a->head->next->value < a->head->next->next->value)
 		{
-			sa(a);
-			ra(a);
-			sa(a);
-			rra(a);
+			sa(a, str);
+			ra(a, str);
+			sa(a, str);
+			rra(a, str);
 		}
-		else if (a->head->next->value < a->head->next->next->value &&
-					 a->head->next->next->value > a->head->value &&
+		else if (a->head->next->next->value > a->head->value &&
 					 a->head->value > a->head->next->value)
+			sa(a, str);
+		else if (a->head->value > a->head->next->value &&
+				a->head->next->value > a->head->next->next->value)
 		{
-			sa(a);
+			sa(a, str);
+			ra(a, str);
+			sa(a, str);
+			rra(a, str);
+			sa(a, str);
 		}
-		else if (a->head->value < a->head->next->value)
-			sa(a);
+		else if (a->head->next->value > a->head->next->next->value &&
+				a->head->next->next->value > a->head->value)
+		{
+			ra(a, str);
+			sa(a, str);
+			rra(a, str);
+		}
 	}
-}*/
+}
 
+
+void	check_3(t_d_linklst *a, char **str)
+{
+	if (a->size >= 3)
+	{
+
+		if (a->head->next->value > a->head->value &&
+			a->head->value > a->head->next->next->value)
+			rra(a, str);
+		else if (a->head->value > a->head->next->next->value &&
+				 a->head->next->value < a->head->next->next->value)
+			ra(a, str);
+		else if (a->head->next->next->value > a->head->value &&
+				 a->head->value > a->head->next->value)
+			sa(a, str);
+		else if (a->head->value > a->head->next->value &&
+				 a->head->next->value > a->head->next->next->value)
+		{
+			sa(a, str);
+			ra(a, str);
+		}
+		else if (a->head->next->value > a->head->next->next->value &&
+				 a->head->next->next->value > a->head->value)
+		{
+			ra(a, str);
+			sa(a, str);
+		}
+	}
+}
 int 	if_biggest(t_d_linklst *l, T val)
 {
 	t_node	*tmp;

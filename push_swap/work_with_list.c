@@ -12,6 +12,7 @@ t_d_linklst     *creat(void) // создание листа
 	tmp->tail = NULL;
 	tmp->flag = 0;
 	tmp->fack = 0;
+	tmp->n_size = 0;
 	return (tmp);
 }
 

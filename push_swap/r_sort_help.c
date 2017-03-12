@@ -4,7 +4,9 @@ void    sort_three_rev(t_d_linklst *list_a, char **str)
 {
 	if (list_a->head->value > list_a->head->next->value &&
 		list_a->head->value < list_a->tail->value)
+	{
 		rrb(list_a, str);
+	}
 	else if (list_a->head->value > list_a->head->next->value &&
 			 list_a->tail->value > list_a->tail->prev->value)
 	{
@@ -66,7 +68,7 @@ size_t 	count_large(t_d_linklst *list, T median)
 	tmp = list->head;
 	while (tmp)
 	{
-		if (tmp->value > median)
+		if (tmp->value >= median)
 			count++;
 		tmp = tmp->next;
 	}
