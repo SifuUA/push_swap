@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void	little_help(t_d_linklst *list_a, t_d_linklst *list_b, char **str)
+void	little_help(t_d_linklst *list_a, char **str)
 {
 	if (list_a->head != NULL && list_a->size > 1 && list_a->head->value > list_a->head->next->value)
 		sa(list_a, str);
@@ -173,7 +173,7 @@ void	check_3(t_d_linklst *a, char **str)
 				 a->head->next->value > a->head->next->next->value)
 		{
 			sa(a, str);
-			ra(a, str);
+			rra(a, str);
 		}
 		else if (a->head->next->value > a->head->next->next->value &&
 				 a->head->next->next->value > a->head->value)

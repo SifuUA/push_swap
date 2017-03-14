@@ -7,6 +7,13 @@ int		is_sort_b(t_d_linklst *b)
 
 		i = 0;
 		tmp = b->head;
+		if (b->size == 2)
+		{
+			if (b->head->value > b->tail->value)
+				return (1);
+			else
+				return (0);
+		}
 		while (tmp && tmp->next!= NULL && b->size > 2)
 		{
 			if (tmp->value > tmp->next->value)

@@ -81,7 +81,7 @@ int 				most_close_min(t_d_linklst *list, T med);
 int 				most_close_max(t_d_linklst *list, T med);
 void   				move_to_a(t_d_linklst *list_a, t_d_linklst *list_b, char **str);
 void   				optimize(char *str);
-void				little_help(t_d_linklst *list_a, t_d_linklst *list_b, char **str);
+void				little_help(t_d_linklst *list_a, char **str);
 void   				check(t_d_linklst *list);
 void				check_1(t_d_linklst *b, char **str);
 void    			check_2(t_d_linklst *list, char **str);
@@ -98,4 +98,8 @@ void 				sort_two(t_d_linklst *l, char **str);
 void      			optimize(char *str);
 void				check_3(t_d_linklst *a, char **str);
 void 				push_a_and_b(char **str, int tmp);
+void 				do_it_shit(t_d_linklst *a, t_d_linklst *b, char **str);
+void 				rra_mod(t_d_linklst *list);
+void 				ra_mod(t_d_linklst *list);
+void    			sa_mod(t_d_linklst *list_a);
 #endif
