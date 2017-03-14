@@ -86,7 +86,6 @@ void	r_w_sort(t_d_linklst *a, t_d_linklst *b, char **str)
 	bum(a, b, str);
 	if (a->size > 2 && !is_sort(a))
 		piv_a(a, creat(), str);
-	//	bum(a, b, str);
 	if (b->size > 2 && !is_sort_b(b))
 		piv_b(a, b, str);
 	move_to_a(a, b, str);

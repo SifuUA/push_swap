@@ -81,7 +81,7 @@ void	optimize(char *str)
 		str++;
 		count++;
 	}
-	ft_putstr("COUNT = ");
-	ft_putnbr((int)count);
-	ft_putstr("\n");
+	//ft_putstr("COUNT = ");
+	//ft_putnbr((int)count);
+	//ft_putstr("\n");
 }
