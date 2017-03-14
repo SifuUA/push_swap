@@ -47,17 +47,16 @@ int             main(int argc, char **argv)
 	if (argc > 1)
 	{
 		write_in_list(list_a, argv);
-		//printList(list_a);
 		list_a->f_size = list_a->size;
 		if (list_a->f_size <= 100)
 			do_it_shit(list_a, list_b, &str);
 		else
 			r_w_sort(list_a, list_b, &str);
 		optimize(str);
-		//printList(list_a);
 	}
 	else
 		write(1, "\n", 1);
+	ft_strdel(&str);
 	del_list(list_a);
 	return (0);
 }
