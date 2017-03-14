@@ -79,4 +79,7 @@ void				sort_three_dow_b(t_d_linklst *b, char **str);
 void				sort_four(t_d_linklst *a, t_d_linklst *b, t_d_linklst *c, char **str);
 int					min_s(t_d_linklst *l, char **str);
 void				f_4(t_d_linklst *a, t_d_linklst *b, char **str);
+char 				*tell_me(t_d_linklst *l, char *str);
+void 				mod(t_d_linklst *new, int i, int f);
+size_t				analize(size_t *arr, size_t des);
 #endif
