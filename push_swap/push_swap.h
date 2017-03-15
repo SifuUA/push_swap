@@ -32,6 +32,12 @@ typedef struct      s_d_linklst
 	int				n_size;
 	T 				median;
 	T 				num;
+	size_t 			ret_ra;
+	size_t 			ret_rra;
+	size_t  		tmp;
+	size_t  		tmp2;
+	size_t 			*ar_1;
+	size_t 			*ar_2;
 
 }                   t_d_linklst;
 
