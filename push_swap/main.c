@@ -59,6 +59,8 @@ int				main(int argc, char **argv)
 	list_b = creat();
 	if (argc > 1)
 	{
+
+
 		write_in_list(list_a, argv);
 		list_a->f_size = list_a->size;
 		if (list_a->f_size <= 100)
