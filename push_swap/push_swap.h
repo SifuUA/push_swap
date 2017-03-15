@@ -74,7 +74,7 @@ void				push_swap(t_d_linklst *list_a, t_d_linklst *list_b);
 int					is_sort(t_d_linklst *list);
 void				quick_sort(t_node *head, t_node *tail);
 t_d_linklst			*ft_list_dup(t_d_linklst *list);
-T					find_median(t_d_linklst *list);
+long int			find_median(t_d_linklst *list);
 void				r_w_sort(t_d_linklst *a, t_d_linklst *b, char **str);
 size_t				count_small(t_d_linklst *list, long int median);
 size_t				count_large(t_d_linklst *list, long int median);

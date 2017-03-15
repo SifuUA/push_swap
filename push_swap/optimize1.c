@@ -6,7 +6,7 @@
 /*   By: okres <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 13:25:11 by okres             #+#    #+#             */
-/*   Updated: 2017/03/15 13:26:28 by okres            ###   ########.fr       */
+/*   Updated: 2017/03/15 14:56:27 by okres            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,18 @@ int		is_biggest(t_node *l, long int val)
 		tmp = tmp->next;
 	}
 	return (biggest == val ? 1 : 0);
+}
+
+void	printlist(t_d_linklst *list)
+{
+	t_node	*tmp;
+
+	tmp = list->head;
+	while (tmp)
+	{
+		ft_putnbr((int)tmp->value);
+		write(1, " ", 1);
+		tmp = tmp->next;
+	}
+	write(1, "\n", 1);
 }

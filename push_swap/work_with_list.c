@@ -6,7 +6,7 @@
 /*   By: okres <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 14:21:56 by okres             #+#    #+#             */
-/*   Updated: 2017/03/15 14:22:26 by okres            ###   ########.fr       */
+/*   Updated: 2017/03/15 14:55:59 by okres            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,8 @@ void			push_front(t_d_linklst *list, int value)
 	list->size++;
 }
 
-void			push_head(t_d_linklst *dest, t_d_linklst *src)
+void			push_h(t_d_linklst *src, t_node *tmp, t_node *p)
 {
-	t_node	*tmp;
-	t_node	*p;
-
-	tmp = src->head;
 	if (src->size > 1)
 	{
 		p = src->head->next;
@@ -61,9 +57,18 @@ void			push_head(t_d_linklst *dest, t_d_linklst *src)
 		tmp->next = NULL;
 		tmp->prev = NULL;
 	}
+}
+
+void			push_head(t_d_linklst *dest, t_d_linklst *src)
+{
+	t_node	*tmp;
+	t_node	*p;
+
+	tmp = src->head;
+	push_h(src, tmp, p);
 	if (dest->head == NULL)
 		dest->head = tmp;
-	else 
+	else
 	{
 		p = dest->head;
 		p->prev = tmp;
@@ -81,6 +86,7 @@ void			push_head(t_d_linklst *dest, t_d_linklst *src)
 		src->tail = NULL;
 	}
 }
+
 void			del_list(t_d_linklst *list)
 {
 	t_node	*tmp;
@@ -91,18 +97,4 @@ void			del_list(t_d_linklst *list)
 		list->head = list->head->next;
 		free(tmp);
 	}
-}
-
-void			printlist(t_d_linklst *list)
-{
-	t_node	*tmp;
-
-	tmp = list->head;
-	while (tmp)
-	{
-		ft_putnbr((int)tmp->value);
-		write(1, " ", 1);
-		tmp = tmp->next;
-	}
-	write(1, "\n", 1);
 }
