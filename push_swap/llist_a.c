@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   llist_a.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: okres <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/03/15 13:10:34 by okres             #+#    #+#             */
+/*   Updated: 2017/03/15 13:11:01 by okres            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 t_d_linklst	*ft_list_dup(t_d_linklst *list)
@@ -6,9 +18,10 @@ t_d_linklst	*ft_list_dup(t_d_linklst *list)
 	t_node		*tmp;
 
 	tmp = list->head;
-	new = NULL;
 	if (tmp != NULL)
 		new = creat();
+	else
+		return (NULL);
 	while (tmp)
 	{
 		push_front(new, (int)tmp->value);
@@ -18,10 +31,10 @@ t_d_linklst	*ft_list_dup(t_d_linklst *list)
 	return (new);
 }
 
-size_t 	count_small(t_d_linklst *list, T median)
+size_t		count_small(t_d_linklst *list, long int median)
 {
 	t_node	*tmp;
-	size_t 	count;
+	size_t	count;
 
 	count = 0;
 	tmp = list->head;
@@ -34,16 +47,15 @@ size_t 	count_small(t_d_linklst *list, T median)
 	return (count);
 }
 
-T 	find_median(t_d_linklst *list)
+long int	find_median(t_d_linklst *list)
 {
-	t_d_linklst *tmp;
+	t_d_linklst	*tmp;
 	t_node		*p;
-	size_t 		i;
+	size_t		i;
 
 	tmp = ft_list_dup(list);
 	quick_sort(tmp->head, tmp->tail);
 	p = tmp->head;
-	//i = tmp->size % 2 == 0 ? tmp->size / 2 : tmp->size / 2 + 1;
 	i = tmp->size / 2;
 	while (i > 0)
 	{
@@ -52,38 +64,11 @@ T 	find_median(t_d_linklst *list)
 	}
 	return (p->value);
 }
-void    sort_three(t_d_linklst *list_a, char **str)
-{
-	if (list_a->head->value > list_a->head->next->value &&
-		list_a->head->value < list_a->tail->value)
-		sa(list_a, str);
-	else if (list_a->head->value > list_a->head->next->value &&
-			 list_a->tail->value > list_a->tail->prev->value)
-		ra(list_a, str);
-	else if (list_a->tail->value < list_a->tail->prev->value &&
-			 list_a->tail->value < list_a->head->value)
-	{
-		sa(list_a, str);
-		rra(list_a, str);
-	}
-	else if (list_a->head->value > list_a->tail->value &&
-			 list_a->tail->value < list_a->tail->prev->value)
-	{
-		sa(list_a, str);
-		rra(list_a, str);
-	}
-	else if (list_a->head->value < list_a->tail->value &&
-			 list_a->tail->value < list_a->tail->prev->value)
-	{
-		rra(list_a, str);
-		sa(list_a, str);
-	}
-}
 
-int     is_sort(t_d_linklst *list)
+int			is_sort(t_d_linklst *list)
 {
-	t_node  *tmp;
-	size_t  i;
+	t_node	*tmp;
+	size_t	i;
 
 	i = 0;
 	tmp = list->head;

@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sa_sb_ss.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: okres <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/03/15 13:57:31 by okres             #+#    #+#             */
+/*   Updated: 2017/03/15 14:00:46 by okres            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void    sa(t_d_linklst *list_a, char **str)
+void	sa(t_d_linklst *list_a, char **str)
 {
-	T 		tmp;
-	char	*p;
+	long int	tmp;
+	char		*p;
 
 	if (list_a->size > 1)
 	{
@@ -16,10 +28,11 @@ void    sa(t_d_linklst *list_a, char **str)
 	}
 }
 
-void    sb(t_d_linklst *list_b, char **str)
+void	sb(t_d_linklst *list_b, char **str)
 {
-	T 		tmp;
-	char	*p;
+	long int	tmp;
+	char		*p;
+
 	if (list_b->size > 1)
 	{
 		tmp = list_b->head->value;
@@ -31,9 +44,9 @@ void    sb(t_d_linklst *list_b, char **str)
 	}
 }
 
-void    ss(t_d_linklst *list_a, t_d_linklst *list_b, char **str)
+void	ss(t_d_linklst *list_a, t_d_linklst *list_b, char **str)
 {
-	char 	*p;
+	char	*p;
 
 	p = "";
 	sa(list_a, &p);

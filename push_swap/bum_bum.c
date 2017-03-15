@@ -22,7 +22,7 @@ void	f_1(int i, t_d_linklst *a, t_d_linklst *b, char **str)
 	}
 }
 
-void	f_2(T num, t_d_linklst *a, t_d_linklst *b, char **str)
+void	f_2(long int num, t_d_linklst *a, t_d_linklst *b, char **str)
 {
 	a->size--;
 	a->n_size--;

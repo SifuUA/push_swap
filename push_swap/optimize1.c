@@ -1,8 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   optimize1.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: okres <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/03/15 13:25:11 by okres             #+#    #+#             */
+/*   Updated: 2017/03/15 13:26:28 by okres            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	revers(char **str, int tmp)
 {
-
 	tmp = (*str)[1] - '0';
 	if (tmp == 9)
 	{
@@ -27,7 +38,7 @@ void	revers1(char **str, int tmp)
 	write(1, "\n", 1);
 }
 
-void 	push_a_and_b(char **str, int tmp)
+void	push_a_and_b(char **str, int tmp)
 {
 	if (tmp == 1)
 		ft_putstr("pa");
@@ -36,60 +47,18 @@ void 	push_a_and_b(char **str, int tmp)
 	write(1, "\n", 1);
 }
 
-int 	is_biggest(t_node *l, T val)
+int		is_biggest(t_node *l, long int val)
 {
-	t_node	*tmp;
-	T 		biggest;
+	t_node		*tmp;
+	long int	biggest;
 
 	tmp = l;
 	biggest = tmp->value;
 	while (tmp)
 	{
-		if(tmp->value > biggest)
+		if (tmp->value > biggest)
 			biggest = tmp->value;
 		tmp = tmp->next;
 	}
 	return (biggest == val ? 1 : 0);
-}
-
-t_d_linklst	*ft_list_dup_to(t_d_linklst *list)
-{
-	t_d_linklst	*new;
-	t_node		*tmp;
-	T			hz;
-	int 		i;
-
-	i = 0;
-	new = ft_list_dup(list);
-	tmp = new->head;
-	hz = new->tail->value;
-	while (is_biggest(tmp, hz))
-	{
-		i++;
-		new->tail->value = -21461231231;
-		new->tail = new->tail->prev;
-		hz = new->tail->value;
-	}
-	//i = (int) ((list->size - i) + 1);
-	i = (int) (list->size - i);
-	del_list(new);
-	tmp = list->head;
-	if (tmp != NULL)
-		new = creat();
-	while (i > 0)
-	{
-		push_front(new, (int)tmp->value);
-		tmp = tmp->next;
-		i--;
-	}
-	/*tmp = list->head;
-	if (tmp != NULL)
-		new = creat();
-	while (i < list->n_size)
-	{
-		push_front(new, (int)tmp->value);
-		tmp = tmp->next;
-		i++;
-	}*/
-	return (new);
 }

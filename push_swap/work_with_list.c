@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   work_with_list.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: okres <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/03/15 14:21:56 by okres             #+#    #+#             */
+/*   Updated: 2017/03/15 14:22:26 by okres            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-t_d_linklst     *creat(void) // создание листа
+t_d_linklst		*creat(void)
 {
 	t_d_linklst *tmp;
-	int 		i;
+	int			i;
 
 	i = 0;
 	tmp = (t_d_linklst *)malloc(sizeof(t_d_linklst));
@@ -13,12 +25,13 @@ t_d_linklst     *creat(void) // создание листа
 	tmp->flag = 0;
 	tmp->fack = 0;
 	tmp->n_size = 0;
+	tmp->i = 0;
 	return (tmp);
 }
 
-void            push_front(t_d_linklst *list, int value)
+void			push_front(t_d_linklst *list, int value)
 {
-	t_node  *node;
+	t_node	*node;
 
 	node = (t_node *)malloc(sizeof(t_node));
 	if (node == NULL)
@@ -34,9 +47,9 @@ void            push_front(t_d_linklst *list, int value)
 	list->size++;
 }
 
-void            push_head(t_d_linklst *dest, t_d_linklst *src)
+void			push_head(t_d_linklst *dest, t_d_linklst *src)
 {
-	t_node  *tmp;
+	t_node	*tmp;
 	t_node	*p;
 
 	tmp = src->head;
@@ -68,7 +81,7 @@ void            push_head(t_d_linklst *dest, t_d_linklst *src)
 		src->tail = NULL;
 	}
 }
-void 			del_list(t_d_linklst *list)
+void			del_list(t_d_linklst *list)
 {
 	t_node	*tmp;
 
@@ -80,9 +93,9 @@ void 			del_list(t_d_linklst *list)
 	}
 }
 
-void            printList(t_d_linklst *list)
+void			printlist(t_d_linklst *list)
 {
-	t_node  *tmp;
+	t_node	*tmp;
 
 	tmp = list->head;
 	while (tmp)

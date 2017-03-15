@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ra_rb.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: okres <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/03/15 13:53:35 by okres             #+#    #+#             */
+/*   Updated: 2017/03/15 13:55:37 by okres            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void 	ra(t_d_linklst *list, char **str)
+void	ra(t_d_linklst *list, char **str)
 {
 	t_node	*tmp;
 	char	*p;
@@ -19,10 +31,10 @@ void 	ra(t_d_linklst *list, char **str)
 	}
 }
 
-void 	rb(t_d_linklst *list, char **str)
+void	rb(t_d_linklst *list, char **str)
 {
 	t_node	*tmp;
-	char 	*p;
+	char	*p;
 
 	if (list->size > 1)
 	{
@@ -38,7 +50,7 @@ void 	rb(t_d_linklst *list, char **str)
 	}
 }
 
-void 	rr(t_d_linklst *list_a, t_d_linklst *list_b, char **str)
+void	rr(t_d_linklst *list_a, t_d_linklst *list_b, char **str)
 {
 	char	*p;
 

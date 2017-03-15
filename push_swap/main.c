@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: okres <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/03/15 13:11:05 by okres             #+#    #+#             */
+/*   Updated: 2017/03/15 13:15:51 by okres            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-static int      find_same(T num, t_d_linklst *list)
+static int		find_same(long int num, t_d_linklst *list)
 {
-	t_node  *tmp;
+	t_node	*tmp;
 
 	tmp = list->head;
 	while (tmp)
@@ -14,17 +26,18 @@ static int      find_same(T num, t_d_linklst *list)
 	return (0);
 }
 
-static void     write_in_list(t_d_linklst *list, char **s)
+static void		write_in_list(t_d_linklst *list, char **s)
 {
-	T   i;
-	T   tmp;
+	long int	i;
+	long int	tmp;
 
 	i = 1;
 	tmp = 0;
 	while (s[i])
 	{
 		tmp = ft_atoi(s[i]);
-		if (ft_strcmp(ft_itoa((int)tmp), s[i]) == 0 && find_same(tmp, list) == 0)
+		if (ft_strcmp(ft_itoa((int)tmp), s[i]) == 0 &&
+				find_same(tmp, list) == 0)
 			push_front(list, tmp);
 		else
 		{
@@ -35,11 +48,11 @@ static void     write_in_list(t_d_linklst *list, char **s)
 	}
 }
 
-int             main(int argc, char **argv)
+int				main(int argc, char **argv)
 {
-	t_d_linklst     *list_a;
-	t_d_linklst     *list_b;
-	char 			*str;
+	t_d_linklst		*list_a;
+	t_d_linklst		*list_b;
+	char			*str;
 
 	str = ft_strnew(5000);
 	list_a = creat();

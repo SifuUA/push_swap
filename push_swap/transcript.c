@@ -1,8 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   transcript.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: okres <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/03/15 14:00:52 by okres             #+#    #+#             */
+/*   Updated: 2017/03/15 14:02:55 by okres            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	route(char **str, int tmp)
 {
-
 	tmp = (*str)[1] - '0';
 	if (tmp == 7)
 	{
@@ -16,7 +27,6 @@ void	route(char **str, int tmp)
 
 void	route1(char **str, int tmp)
 {
-
 	tmp = *(str)[1] - '0';
 	if (tmp == 6)
 	{
@@ -27,9 +37,9 @@ void	route1(char **str, int tmp)
 		ft_putstr("rb");
 	write(1, "\n", 1);
 }
+
 void	swap(char **str, int tmp)
 {
-
 	tmp = (*str)[1] - '0';
 	if (tmp == 4)
 	{
@@ -43,7 +53,6 @@ void	swap(char **str, int tmp)
 
 void	swap1(char **str, int tmp)
 {
-
 	tmp = (*str)[1] - '0';
 	if (tmp == 3)
 	{
@@ -57,8 +66,8 @@ void	swap1(char **str, int tmp)
 
 void	optimize(char *str)
 {
-	int tmp;
-	size_t count;
+	int		tmp;
+	size_t	count;
 
 	count = 0;
 	while (*str)

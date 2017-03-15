@@ -1,34 +1,45 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   help_func.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: okres <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/03/15 13:05:59 by okres             #+#    #+#             */
+/*   Updated: 2017/03/15 13:07:08 by okres            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int		is_sort_b(t_d_linklst *b)
 {
-		t_node  *tmp;
-		size_t  i;
+	t_node	*tmp;
+	size_t	i;
 
-		i = 0;
-		tmp = b->head;
-		if (b->size == 2)
-		{
-			if (b->head->value > b->tail->value)
-				return (1);
-			else
-				return (0);
-		}
-		while (tmp && tmp->next!= NULL && b->size > 2)
-		{
-			if (tmp->value > tmp->next->value)
-				i++;
-			tmp = tmp->next;
-		}
-		if (i == b->size - 1)
+	i = 0;
+	tmp = b->head;
+	if (b->size == 2)
+	{
+		if (b->head->value > b->tail->value)
 			return (1);
-		return (0);
+		else
+			return (0);
+	}
+	while (tmp && tmp->next != NULL && b->size > 2)
+	{
+		if (tmp->value > tmp->next->value)
+			i++;
+		tmp = tmp->next;
+	}
+	if (i == b->size - 1)
+		return (1);
+	return (0);
 }
 
-void 	rra_mod(t_d_linklst *list)
+void	rra_mod(t_d_linklst *list)
 {
 	t_node	*tmp;
-	char 	*p;
 
 	if (list->size > 1)
 	{
@@ -43,9 +54,9 @@ void 	rra_mod(t_d_linklst *list)
 	}
 }
 
-void    sa_mod(t_d_linklst *list_a)
+void	sa_mod(t_d_linklst *list_a)
 {
-	T 		tmp;
+	long int tmp;
 
 	if (list_a->size > 1)
 	{
@@ -55,18 +66,8 @@ void    sa_mod(t_d_linklst *list_a)
 	}
 }
 
-int 	try_help(t_d_linklst *l, int i)
+void	move_to_a(t_d_linklst *list_a, t_d_linklst *list_b, char **str)
 {
-	t_d_linklst *new;
-
-	new = ft_list_dup(l);
-	while (i > 0)
-	{
-		rra_mod(new);
-		if (new->head != NULL && new->size > 1 && new->head->value > new->head->next->value)
-			sa_mod(new);
-		i--;
-	}
-	return (is_sort(new) ? 1 : 0);
+	while (list_b->size > 0)
+		pa(list_a, list_b, str);
 }
-

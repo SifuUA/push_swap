@@ -1,33 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   r_m_sort.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: okres <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/03/15 13:49:15 by okres             #+#    #+#             */
+/*   Updated: 2017/03/15 13:49:16 by okres            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-
-void	piv_a(t_d_linklst *a, t_d_linklst *b, char **str)
+void	piv_a1(t_d_linklst *a, t_d_linklst *b, char **str, int i)
 {
-	t_d_linklst *c;
-	T			med;
-	T 		count;
-	int 		i;
-
-	i = 0;
-	c = a->flag == 0 ? ft_list_dup(a) : ft_list_dup_to(a);
-	quick_sort(c->head, c->tail);
-	med = find_median(c);
-	count = count_small(c, med);
-	while (count > 0)
-	{
-		if (a->head->value < med)
-		{
-			pb(a, b, str);
-			a->n_size--;
-			count--;
-
-		}
-		else
-		{
-			ra(a, str);
-			i++;
-		}
-	}
 	if (a->flag != 0)
 	{
 		while (i > 0)
@@ -42,36 +28,36 @@ void	piv_a(t_d_linklst *a, t_d_linklst *b, char **str)
 	r_w_sort(a, b, str);
 }
 
-void	piv_b(t_d_linklst *a, t_d_linklst *b, char **str)
+void	piv_a(t_d_linklst *a, t_d_linklst *b, char **str)
 {
 	t_d_linklst *c;
-	T			med;
-	T 			count;
-	T 			i;
 
-	i = 0;
-	a->n_size = 0;
-	a->flag = 1;
-	c = ft_list_dup(b);
+	a->i = 0;
+	c = a->flag == 0 ? ft_list_dup(a) : ft_list_dup_to(a);
 	quick_sort(c->head, c->tail);
-	med = find_median(c);
-	count = count_large(c, med);
-	if (a->size + b->size == a->f_size)
-		a->fack = 1;
-	while (count > 0)
+	a->med = find_median(c);
+	a->count = count_small(c, a->med);
+	while (a->count > 0)
 	{
-		if (b->head->value >= med)
+		if (a->head->value < a->med)
 		{
-			pa(a, b, str);
-			a->n_size++;
-			count--;
+			pb(a, b, str);
+			a->n_size--;
+			a->count--;
 		}
 		else
 		{
-			rb(b, str);
-			i++;
+			ra(a, str);
+			a->i++;
 		}
 	}
+	if (c)
+		del_list(c);
+	piv_a1(a, b, str, a->i);
+}
+
+void	piv_b1(t_d_linklst *a, t_d_linklst *b, char **str, int i)
+{
 	while (i > 0 && a->fack != 1)
 	{
 		rrb(b, str);
@@ -79,6 +65,28 @@ void	piv_b(t_d_linklst *a, t_d_linklst *b, char **str)
 	}
 	a->fack = 0;
 	r_w_sort(a, b, str);
+}
+
+void	piv_b(t_d_linklst *a, t_d_linklst *b, char **str)
+{
+	initial(a, b);
+	if (a->size + b->size == a->f_size)
+		a->fack = 1;
+	while (b->count > 0)
+	{
+		if (b->head->value >= b->med)
+		{
+			pa(a, b, str);
+			a->n_size++;
+			b->count--;
+		}
+		else
+		{
+			rb(b, str);
+			b->i++;
+		}
+	}
+	piv_b1(a, b, str, b->i);
 }
 
 void	r_w_sort(t_d_linklst *a, t_d_linklst *b, char **str)
